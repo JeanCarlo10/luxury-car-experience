@@ -90,10 +90,9 @@ const FAQ = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView={"animate"}
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-4xl text-(--foreground) md:text-5xl font-bold mb-4"
           >
-            Dicas e{" "}
-            <span className="text-(--primary)">Perguntas Frequentes</span>
+            Dicas e Perguntas Frequentes
           </motion.h2>
           <motion.p
             variants={SlideUp(0.4)}

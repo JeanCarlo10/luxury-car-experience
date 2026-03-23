@@ -1,11 +1,11 @@
 import { Facebook, Instagram } from "lucide-react";
-import logoImage from "@/assets/logo.webp";
+import logoImage from "@/assets/Logo_AP.png";
 import { motion } from "framer-motion";
 import { SlideUp } from "@/animations";
 
 const Footer = () => {
   return (
-    <footer className="bg-(--secondary) text-(--background) py-12">
+    <footer className="bg-(--background) py-12">
       <div className="container mx-auto px-6 md:px-8" >
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <motion.div
@@ -17,7 +17,7 @@ const Footer = () => {
             <div className="mb-4">
               <img
                 src={logoImage}
-                alt="Logo - Luiz Centro Automotivo"
+                alt="Logo - Luxury Car Experience"
                 width="150"
                 height="85"
                 className="w-[110px] h-auto"
@@ -25,9 +25,8 @@ const Footer = () => {
               />
             </div>
 
-            <p className="text-(--background)/80">
-              Cuidando do seu veículo com excelência e dedicação há mais de 30
-              anos.
+            <p className="text-(--foreground)">
+              Cuidando do seu veículo com excelência e dedicação.
             </p>
           </motion.div>
 
@@ -37,31 +36,31 @@ const Footer = () => {
             whileInView={"animate"}
             className="space-y-6"
           >
-            <h2 className="mb-4 text-xl font-bold md:flex justify-center">
+            <h2 className="mb-4 text-xl text-(--foreground) font-bold md:flex justify-center">
               Links Rápidos
             </h2>
             <div className="flex flex-col gap-2">
               <a
                 href="#home"
-                className="text-(--background)/80 hover:text-(--primary) md:flex justify-center"
+                className="text-(--foreground) hover:text-(--foreground)/80 transition-colors duration-[400ms] md:flex justify-center"
               >
                 Início
               </a>
               <a
                 href="#service"
-                className="text-(--background)/80 hover:text-(--primary) md:flex justify-center"
+                className="text-(--foreground) hover:text-(--foreground)/80 transition-colors duration-[400ms] md:flex justify-center"
               >
                 Serviços
               </a>
               <a
                 href="#about"
-                className="text-(--background)/80 hover:text-(--primary) md:flex justify-center"
+                className="text-(--foreground) hover:text-(--foreground)/80 transition-colors duration-[400ms] md:flex justify-center"
               >
                 Sobre
               </a>
               <a
                 href="#contact"
-                className="text-(--background)/80 hover:text-(--primary) md:flex justify-center"
+                className="text-(--foreground) hover:text-(--foreground)/80 transition-colors duration-[400ms] md:flex justify-center"
               >
                 Contato
               </a>
@@ -74,14 +73,14 @@ const Footer = () => {
             whileInView={"animate"}
             className="space-y-6"
           >
-            <h2 className="mb-4 text-xl font-bold md:text-center">
+            <h2 className="mb-4 text-xl text-(--foreground) font-bold md:text-center">
               Horário de atendimento
             </h2>
             <div className="flex flex-col gap-2">
-              <span className="text-(--background)/80 md:text-center">
+              <span className="text-(--foreground) md:text-center">
                 Segunda - Sexta: 8:00h às 18:00h
               </span>
-              <span className="text-(--background)/80 md:text-center">
+              <span className="text-(--foreground) md:text-center">
                 Sábado: 8:00h às 12:00h
               </span>
             </div>
@@ -93,7 +92,7 @@ const Footer = () => {
             whileInView={"animate"}
             className="space-y-6"
           >
-            <h2 className="mb-4 text-xl font-bold text-(--background) md:flex justify-end">
+            <h2 className="mb-4 text-xl font-bold text-(--foreground) md:flex justify-end">
               Redes Sociais
             </h2>
             <div className="flex gap-4 flex-column md:justify-end">

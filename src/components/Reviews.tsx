@@ -93,7 +93,7 @@ const Reviews = () => {
 
   const hasGoogle = useMemo(
     () => typeof window !== "undefined" && (window as any).google,
-    []
+    [],
   );
 
   const fetchReviews = useCallback(() => {
@@ -101,7 +101,7 @@ const Reviews = () => {
     if (!g?.maps?.places) return;
 
     const service = new g.maps.places.PlacesService(
-      document.createElement("div")
+      document.createElement("div"),
     );
 
     service.getDetails(
@@ -121,7 +121,7 @@ const Reviews = () => {
         setTotalRatings(
           typeof place.user_ratings_total === "number"
             ? place.user_ratings_total
-            : null
+            : null,
         );
 
         const list: GoogleReview[] = Array.isArray(place.reviews)
@@ -129,7 +129,7 @@ const Reviews = () => {
           : [];
         list.sort((a, b) => (b.time ?? 0) - (a.time ?? 0));
         setReviews(list);
-      }
+      },
     );
   }, []);
 
@@ -162,7 +162,7 @@ const Reviews = () => {
           io.disconnect();
         }
       },
-      { rootMargin: "250px" }
+      { rootMargin: "250px" },
     );
 
     io.observe(el);
@@ -191,10 +191,9 @@ const Reviews = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView={"animate"}
-            className="text-4xl md:text-5xl font-bold mb-3"
+            className="text-4xl text-(--foreground) md:text-5xl font-bold mb-3"
           >
-            O Que Nossos{" "}
-            <span className="text-(--primary)">Clientes Dizem</span>
+            O que nossos clientes dizem
           </motion.h2>
 
           <motion.p
@@ -279,7 +278,7 @@ const Reviews = () => {
             {reviews.map((r, idx) => {
               const { short, needsMore } = clampText(
                 r.text || "",
-                isMobile ? 180 : 200
+                isMobile ? 180 : 200,
               );
 
               return (

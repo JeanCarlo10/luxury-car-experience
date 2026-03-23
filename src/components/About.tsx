@@ -13,7 +13,7 @@ const features = [
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-(--secondary)">
+    <section id="about" className="py-20 bg-(--background)">
       <div className="container mx-auto px-6 md:px-8">
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           <motion.div
@@ -22,8 +22,8 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="w-full lg:w-1/2"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              Sobre <span className="text-(--primary)">Nossa Oficina</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-(--foreground)">
+              Sobre Nossa Oficina
             </h2>
             <p className="text-lg text-white/90 mb-6">
               Somos uma oficina mecânica completa, focada em oferecer serviços

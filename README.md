@@ -1,4 +1,4 @@
-# Bem-vindo ao projeto Luiz Centro Automotivo
+# Bem-vindo ao projeto Luxury Car Experience
 
 ## Informações do projeto
 

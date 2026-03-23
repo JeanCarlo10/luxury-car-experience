@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Mail } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -111,16 +111,16 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="pb-20 bg-background">
+    <section id="contact" className="pb-20 bg-(--background)">
       <div className="container mx-auto px-6 md:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <motion.h2
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView={"animate"}
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-4xl text-(--foreground) md:text-5xl font-bold mb-4"
           >
-            Entre em <span className="text-(--primary)">Contato</span>
+            Entre em contato
           </motion.h2>
           <motion.p
             variants={SlideUp(0.4)}

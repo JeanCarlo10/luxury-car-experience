@@ -1,4 +1,11 @@
-import { Wrench, Settings, Activity, Disc3, Move, ShieldCheck  } from "lucide-react";
+import {
+  Wrench,
+  Settings,
+  Activity,
+  Disc3,
+  Move,
+  ShieldCheck,
+} from "lucide-react";
 import {
   Card,
   CardHeader,
@@ -55,9 +62,9 @@ const Services = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView={"animate"}
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-4xl text-(--foreground) md:text-5xl font-bold mb-4"
           >
-            Nossos <span className="text-(--primary)">Serviços</span>
+            Nossos Serviços
           </motion.h2>
           <motion.p
             variants={SlideUp(0.4)}
