@@ -98,7 +98,7 @@ const Footer = () => {
             </h2>
             <div className="flex gap-4 flex-column md:justify-end">
               <a
-                href="https://www.facebook.com/luizcentroautomotivo"
+                href="https://www.facebook.com/andrepeliculasfoz"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Acessar página do Facebook"
@@ -107,7 +107,7 @@ const Footer = () => {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://www.instagram.com/luizcentroautomotivo"
+                href="https://www.instagram.com/andre_peliculas/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Acessar página do Instagram"
@@ -121,7 +121,7 @@ const Footer = () => {
 
         <div className="border-t border-border pt-8 text-center text-xs text-white/70 ">
           <p>
-            &copy; {new Date().getFullYear()} Luiz Centro Automotivo. Todos os
+            &copy; {new Date().getFullYear()} Luxury Car Experience. Todos os
             direitos reservados.
           </p>
         </div>

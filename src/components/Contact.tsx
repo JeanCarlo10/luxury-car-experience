@@ -55,7 +55,7 @@ type QuoteFormData = z.infer<typeof quoteFormSchema>;
 const WHATSAPP_NUMBER = "5545999739942";
 const WHATSAPP_TEXT = "Olá! Gostaria de agendar um atendimento.";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  WHATSAPP_TEXT
+  WHATSAPP_TEXT,
 )}`;
 
 const Contact = () => {
@@ -98,7 +98,7 @@ const Contact = () => {
     window.open(WHATSAPP_CONTACT, "_blank", "noopener,noreferrer");
 
     toast.success(
-      "Mensagem enviada com sucesso! Entraremos em contato em breve."
+      "Mensagem enviada com sucesso! Entraremos em contato em breve.",
     );
 
     form.reset({
@@ -341,18 +341,8 @@ const Contact = () => {
                     className="text-base font-medium hover:underline"
                     aria-label="Abrir conversa no WhatsApp"
                   >
-                    (45) 99973-9942
+                    (45) 99916-8759
                   </a>
-                </div>
-              </div>
-
-              <div className="flex flex-col md:flex-row">
-                <div className="min-w-12 min-h-12 w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mr-4 mb-1">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-lg font-semibold">Telefone</span>
-                  <span className="text-base flex-wrap">(45) 3522-4002</span>
                 </div>
               </div>
 
@@ -364,9 +354,9 @@ const Contact = () => {
                   <span className="text-lg font-semibold">E-mail</span>
                   <a
                     className="sm:text-base md:text-sm lg:text-base"
-                    href="mailto:luizanunciosface@hotmail.com"
+                    href="mailto:luxurycar@gmail.com"
                   >
-                    luizanunciosface@hotmail.com
+                    luxurycar@gmail.com
                   </a>
                 </div>
               </div>
@@ -378,7 +368,8 @@ const Contact = () => {
                 <div className="flex flex-col">
                   <span className="text-lg font-semibold">Endereço</span>
                   <span className="text-base flex-wrap">
-                    Rua Di Cavalcanti, 1832 - Foz do Iguaçu - PR
+                    Rua Marechal Floriano Peixoto, 2182 - Centro - Foz do Iguaçu
+                    - PR
                   </span>
                 </div>
               </div>
@@ -387,7 +378,7 @@ const Contact = () => {
             {/* Map */}
             <div className="rounded-lg p-4 overflow-hidden shadow-custom">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.775641084764!2d-54.59041532480658!3d-25.512528036161832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f6900cd05545cf%3A0xf81cdec09b221b72!2sLuiz%20Centro%20Automotivo!5e0!3m2!1spt-BR!2sbr!4v1763529954277!5m2!1spt-BR!2sbr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14400.403868883946!2d-54.60115781337539!3d-25.535013481787537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f6911fb77e4adf%3A0x20288ad48b18ce4f!2zQW5kcsOpIFBlbMOtY3VsYXM!5e0!3m2!1spt-BR!2sbr!4v1774284994748!5m2!1spt-BR!2sbr"
                 width="100%"
                 height="350"
                 style={{ borderRadius: 4 }}
