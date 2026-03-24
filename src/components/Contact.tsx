@@ -52,7 +52,7 @@ const quoteFormSchema = z.object({
 
 type QuoteFormData = z.infer<typeof quoteFormSchema>;
 
-const WHATSAPP_NUMBER = "5545999739942";
+const WHATSAPP_NUMBER = "554599168759";
 const WHATSAPP_TEXT = "Olá! Gostaria de agendar um atendimento.";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   WHATSAPP_TEXT,
@@ -136,10 +136,10 @@ const Contact = () => {
           {/* Form */}
           <div className="rounded-lg p-6 shadow-custom">
             <div className="flex flex-col gap-2">
-              <h1 className="text-(--primary) text-3xl font-semibold">
+              <h1 className="text-(--foreground) text-3xl font-semibold">
                 Solicitar Orçamento
               </h1>
-              <span className="text-sm mb-8">
+              <span className="text-(--foreground)/60 text-sm mb-8">
                 Preencha o formulário e entraremos em contato
               </span>
             </div>
@@ -154,17 +154,17 @@ const Contact = () => {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="gap-0.5 font-semibold">
-                        Nome <span className="text-(--primary)">*</span>
+                      <FormLabel className="gap-0.5 font-semibold text-(--foreground)">
+                        Nome <span className="text-(--ring)">*</span>
                       </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
                           placeholder="Seu nome completo"
-                          className="border border-(--input) focus:border-(--primary) focus:ring-2 focus:ring-(--primary) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
+                          className="text-amber-300 placeholder:text-white/40 placeholder:italic border-2 border-(--card) focus:border-(--secondary) focus:ring-2 focus:ring-(--primary) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
                         />
                       </FormControl>
-                      <FormMessage className="text-(--primary)" />
+                      <FormMessage className="text-(--ring)" />
                     </FormItem>
                   )}
                 />
@@ -174,18 +174,18 @@ const Contact = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="gap-0.5 font-semibold">
-                        E-mail <span className="text-(--primary)">*</span>
+                      <FormLabel className="gap-0.5 font-semibold text-(--foreground)">
+                        E-mail <span className="text-(--ring)">*</span>
                       </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
                           type="email"
                           placeholder="seu@email.com"
-                          className="border border-(--input) focus:border-(--primary) focus:ring-2 focus:ring-(--primary) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
+                          className="text-amber-300 placeholder:text-white/40 placeholder:italic border-2 border-(--card) focus:border-(--secondary) focus:ring-2 focus:ring-(--primary) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
                         />
                       </FormControl>
-                      <FormMessage className="text-(--primary)" />
+                      <FormMessage className="text-(--ring)" />
                     </FormItem>
                   )}
                 />
@@ -195,18 +195,18 @@ const Contact = () => {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="gap-0.5 font-semibold">
-                        Telefone <span className="text-(--primary)">*</span>
+                      <FormLabel className="gap-0.5 font-semibold text-(--foreground)">
+                        Telefone <span className="text-(--ring)">*</span>
                       </FormLabel>
                       <FormControl>
                         <IMaskInput
                           {...field}
                           mask="(00) 00000-0000"
                           placeholder="(99) 99999-9999"
-                          className="border border-(--input) focus:border-(--primary) focus:ring-1 focus:ring-(--primary) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
+                          className="text-amber-300 placeholder:text-white/40 placeholder:italic border-2 border-(--card) focus:border-(--secondary) focus:ring-1 focus:ring-(--primary) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
                         />
                       </FormControl>
-                      <FormMessage className="text-(--primary)" />
+                      <FormMessage className="text-(--ring)" />
                     </FormItem>
                   )}
                 />
@@ -216,8 +216,8 @@ const Contact = () => {
                   name="service"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="gap-0.5 font-semibold">
-                        Serviço <span className="text-(--primary)">*</span>
+                      <FormLabel className="gap-0.5 font-semibold text-(--foreground)">
+                        Serviço <span className="text-(--ring)">*</span>
                       </FormLabel>
                       <FormControl>
                         <Controller
@@ -230,7 +230,7 @@ const Contact = () => {
                               onValueChange={controllerField.onChange}
                             >
                               <FormControl>
-                                <SelectTrigger className="border border-(--input) focus:border-(--primary) focus:ring-1 focus:ring-(--primary) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full">
+                                <SelectTrigger className="text-amber-300 border-2 border-(--card) focus:border-(--secondary) focus:ring-1 focus:ring-(--primary) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full data-[placeholder]:italic data-[placeholder]:text-white/40">
                                   <SelectValue placeholder="Selecione o serviço" />
                                 </SelectTrigger>
                               </FormControl>
@@ -288,7 +288,7 @@ const Contact = () => {
                           )}
                         />
                       </FormControl>
-                      <FormMessage className="text-(--primary)" />
+                      <FormMessage className="text-(--ring)" />
                     </FormItem>
                   )}
                 />
@@ -298,24 +298,24 @@ const Contact = () => {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="gap-0.5 font-semibold">
-                        Mensagem <span className="text-(--primary)">*</span>
+                      <FormLabel className="gap-0.5 font-semibold text-(--foreground)">
+                        Mensagem <span className="text-(--ring)">*</span>
                       </FormLabel>
                       <FormControl>
                         <Textarea
                           {...field}
                           placeholder="Descreva o problema ou serviço desejado..."
-                          className="min-h-[225px] border border-(--input) focus:border-(--primary) focus:ring-2 focus:ring-(--primary) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
+                          className="min-h-[150px] text-amber-300 placeholder:text-white/40 placeholder:italic border-2 border-(--card) focus:border-(--secondary) focus:ring-2 focus:ring-(--primary) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
                         />
                       </FormControl>
-                      <FormMessage className="text-(--primary)" />
+                      <FormMessage className="text-(--ring)" />
                     </FormItem>
                   )}
                 />
 
                 <Button
                   type="submit"
-                  className="w-full py-6 bg-red-600 text-white font-semibold rounded-lg shadow-custom hover:bg-(--button-primary-medium) cursor-pointer"
+                  className="w-full py-6 bg-(--sub-card) text-white font-semibold rounded-lg cursor-pointer"
                 >
                   Enviar solicitação
                 </Button>
@@ -327,18 +327,18 @@ const Contact = () => {
           <div className="flex flex-col gap-8">
             <div className="rounded-lg p-6 shadow-custom flex flex-col gap-8">
               <div className="flex flex-col md:flex-row">
-                <div className="min-w-12 min-h-12 w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mr-4 mb-1">
-                  <FaWhatsapp className="w-6 h-6 text-white" />
+                <div className="min-w-12 min-h-12 w-12 h-12 bg-(--sub-card) rounded-full flex items-center justify-center mr-4 mb-1">
+                  <FaWhatsapp className="w-6 h-6 text-(--gold)" />
                 </div>
 
                 <div className="flex flex-col">
-                  <span className="text-lg font-semibold">WhatsApp</span>
+                  <span className="text-white text-lg font-semibold">WhatsApp</span>
 
                   <a
                     href={WHATSAPP_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-base font-medium hover:underline"
+                    className="text-white/60 text-base font-medium hover:underline"
                     aria-label="Abrir conversa no WhatsApp"
                   >
                     (45) 99916-8759
@@ -347,13 +347,13 @@ const Contact = () => {
               </div>
 
               <div className="flex flex-col md:flex-row">
-                <div className="min-w-12 min-h-12 w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mr-4 mb-1">
-                  <Mail className="w-6 h-6 text-white" />
+                <div className="min-w-12 min-h-12 w-12 h-12 bg-(--sub-card) rounded-full flex items-center justify-center mr-4 mb-1">
+                  <Mail className="w-6 h-6 text-(--gold)" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-lg font-semibold">E-mail</span>
+                  <span className="text-white text-lg font-semibold">E-mail</span>
                   <a
-                    className="sm:text-base md:text-sm lg:text-base"
+                    className="text-white/70 sm:text-base md:text-sm lg:text-base"
                     href="mailto:luxurycar@gmail.com"
                   >
                     luxurycar@gmail.com
@@ -362,12 +362,12 @@ const Contact = () => {
               </div>
 
               <div className="flex flex-col md:flex-row">
-                <div className="min-w-12 min-h-12 w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mr-4 mb-1">
-                  <MapPin className="w-6 h-6 text-white" />
+                <div className="min-w-12 min-h-12 w-12 h-12 bg-(--sub-card) rounded-full flex items-center justify-center mr-4 mb-1">
+                  <MapPin className="w-6 h-6 text-(--gold)" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-lg font-semibold">Endereço</span>
-                  <span className="text-base flex-wrap">
+                  <span className="text-white text-lg font-semibold">Endereço</span>
+                  <span className="text-white/70 text-base flex-wrap">
                     Rua Marechal Floriano Peixoto, 2182 - Centro - Foz do Iguaçu
                     - PR
                   </span>

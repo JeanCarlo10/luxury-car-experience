@@ -11,9 +11,10 @@
     font-family: "Montserrat", system-ui, sans-serif;
 
     --background: #000;
-    --foreground: #FFF;
+    --foreground: #fff;
 
-    --card: #fafafa;
+    --card: #0e0e0e;
+    --sub-card: #212121;
 
     --primary: #000;
     --primary-foreground: #ffffff;
@@ -22,11 +23,11 @@
     --secondary: #1a1a1a;
     --secondary-foreground: #ffffff;
 
-    --button-primary: #FFF;
+    --button-primary: #fff;
     --button-primary-medium: #c10007;
 
     --gold: #daa520;
-    --gold-metallic: #D3AF37;
+    --gold-metallic: #d3af37;
 
     --muted: #f5f5f5;
     --muted-foreground: #bebebe;
@@ -36,25 +37,11 @@
     --input: #e6e6e6;
     --ring: #ff0000;
 
-    --blur: rgba(0,0,0,0.35);
-    --gradient-primary: linear-gradient(
-      135deg,
-      hsl(0, 100%, 50%),
-      hsl(0, 100%, 35%)
-    );
+    --blur: rgba(0, 0, 0, 0.35);
   }
 }
 
 @layer utilities {
-  .hover-bg-gradient-primary:hover {
-    background: var(--gradient-primary);
-    color: white;
-  }
-
-  .bg-gradient-primary {
-    background: var(--gradient-primary);
-  }
-
   .shadow-custom {
     box-shadow: 0px 6px 16px 0px #00000026;
   }
@@ -76,7 +63,7 @@
   }
 
   .pagination-bullet-review .swiper-pagination-bullet-active {
-    background: var(--primary) !important;
+    background: var(--foreground) !important;
     opacity: 1;
   }
 }

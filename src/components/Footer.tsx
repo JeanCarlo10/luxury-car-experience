@@ -101,7 +101,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Acessar página do Facebook"
-                className="w-10 h-10 bg-(--background) text-(--foreground) hover-bg-gradient-primary rounded-lg flex items-center justify-center transition-all hover:scale-110 group"
+                className="w-10 h-10 bg-(--sub-card) text-(--foreground) hover:text-(--gold) rounded-lg flex items-center justify-center"
               >
                 <Facebook className="w-5 h-5" />
               </a>
@@ -110,7 +110,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Acessar página do Instagram"
-                className="w-10 h-10 bg-(--background) text-(--foreground) hover-bg-gradient-primary rounded-lg flex items-center justify-center transition-all hover:scale-110 group"
+                className="w-10 h-10 bg-(--sub-card) text-(--foreground) hover:text-(--gold) rounded-lg flex items-center justify-center"
               >
                 <Instagram className="w-5 h-5" />
               </a>

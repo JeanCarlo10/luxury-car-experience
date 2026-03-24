@@ -237,7 +237,7 @@ const Header = () => {
               <div className="flex flex-1 items-end">
                 <Button
                   onClick={() => scrollToSection("contact")}
-                  className="bg-gradient-primary text-white cursor-pointer hover:opacity-90 transition-opacity w-full "
+                  className="bg-(--foreground) text-black cursor-pointer hover:opacity-90 transition-opacity w-full "
                 >
                   Agendar
                 </Button>

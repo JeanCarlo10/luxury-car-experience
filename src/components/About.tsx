@@ -38,7 +38,7 @@ const About = () => {
             <div className="grid sm:grid-cols-2 gap-4">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-(--primary) shrink-0 mt-1" />
+                  <CheckCircle className="w-6 h-6 text-(--gold) shrink-0 mt-1" />
                   <span className="text-white">{feature}</span>
                 </div>
               ))}

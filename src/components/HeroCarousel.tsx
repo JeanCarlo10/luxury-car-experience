@@ -21,12 +21,11 @@ type Slide = {
 const slides: Slide[] = [
   {
     src: HeroVideo,
-    alt: "Hero 01",
+    alt: "Vídeo aplicando pelicula",
     type: "video",
-    title: "POTÊNCIA E\nPERFORMANCE",
-    subtitle:
-      "Performance de verdade começa com manutenção precisa, garantindo força, estabilidade e eficiência em cada trajeto.",
-    buttonVariant: "yellow",
+    title: "",
+    subtitle: "",
+    buttonVariant: undefined,
     textVariant: "light",
   },
   // {
@@ -155,8 +154,7 @@ const HeroCarousel = () => {
                           {item.subtitle}
                         </p>
 
-                        {/* CTA */}
-                        <button
+                        {/* <button
                           onClick={() => {
                             document
                               .getElementById("contact")
@@ -165,7 +163,7 @@ const HeroCarousel = () => {
                           className={`mt-8 inline-flex items-center cursor-pointer rounded-lg transition px-6 py-3 font-semibold hover:scale-105 ${buttonClass}`}
                         >
                           Agendar Atendimento
-                        </button>
+                        </button> */}
                       </div>
                     </div>
                   </div>
