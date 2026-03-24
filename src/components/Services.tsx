@@ -1,108 +1,3 @@
-// import {
-//   Wrench,
-//   Settings,
-//   Activity,
-//   Disc3,
-//   Move,
-//   ShieldCheck,
-// } from "lucide-react";
-// import {
-//   Card,
-//   CardHeader,
-//   CardTitle,
-//   CardDescription,
-// } from "@/components/ui/card";
-// import { motion } from "framer-motion";
-// import { SlideUp } from "@/animations";
-
-// const services = [
-//   {
-//     icon: Wrench,
-//     title: "Manutenção Preventiva",
-//     description:
-//       "Troca de óleo, filtros e revisões periódicas para manter seu veículo em dia.",
-//   },
-//   {
-//     icon: Settings,
-//     title: "Reparos Mecânicos",
-//     description:
-//       "Diagnóstico e conserto de motor, câmbio, suspensão e outros sistemas.",
-//   },
-//   {
-//     icon: Activity,
-//     title: "Injeção Eletrônica",
-//     description:
-//       "Análise computadorizada e regulagem do sistema de injeção eletrônica.",
-//   },
-//   {
-//     icon: ShieldCheck,
-//     title: "Sistema Eletrônico (ABS e Airbag)",
-//     description:
-//       "Diagnóstico e reparo dos sistemas ABS e Airbag, garantindo segurança.",
-//   },
-// ];
-
-// const Services = () => {
-//   return (
-//     <section id="service" className="py-20 bg-(--background)">
-//       <div className="container mx-auto px-4">
-//         <div className="text-center mb-16">
-//           <motion.h2
-//             variants={SlideUp(0.2)}
-//             initial="initial"
-//             whileInView={"animate"}
-//             className="text-4xl text-(--foreground) md:text-5xl font-bold mb-4"
-//           >
-//             Nossos Serviços
-//           </motion.h2>
-//           <motion.p
-//             variants={SlideUp(0.4)}
-//             initial="initial"
-//             whileInView={"animate"}
-//             className="text-xl text-(--muted-foreground) max-w-2xl mx-auto"
-//           >
-//             Soluções completas para manter seu veículo funcionando perfeitamente
-//           </motion.p>
-//         </div>
-
-//         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-//           {services.map((service, index) => {
-//             const Icon = service.icon;
-//             return (
-//               <motion.div
-//                 key={index}
-//                 initial={{ opacity: 0, y: 50 }}
-//                 whileInView={{ opacity: 1, y: 0 }}
-//                 viewport={{ once: true, amount: 0.3 }}
-//                 transition={{ duration: 0.4, delay: index * 0.1 }}
-//                 whileHover={{
-//                   scale: 1.04,
-//                 }}
-//               >
-//                 <Card className="h-full bg-(--card) rounded-2xl transition-all duration-300 cursor-pointer group">
-//                   <CardHeader>
-//                     <div className="w-16 h-16 bg-(--sub-card) rounded-xl flex items-center justify-center mb-4 transition-transform">
-//                       <Icon className="w-8 h-8 text-(--gold)" />
-//                     </div>
-//                     <CardTitle className="text-2xl text-(--foreground) mb-2">
-//                       {service.title}
-//                     </CardTitle>
-//                     <CardDescription className="text-md text-(--foreground)/50">
-//                       {service.description}
-//                     </CardDescription>
-//                   </CardHeader>
-//                 </Card>
-//               </motion.div>
-//             );
-//           })}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Services;
-
 import { Sparkles, Shield, SprayCan, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { SlideUp } from "@/animations";
@@ -119,6 +14,7 @@ const services = [
     description:
       "Remove marcas leves, microrriscos e opacidade da pintura, devolvendo brilho e profundidade à cor do veículo.",
     image: PolimentoBg,
+    imagePosition: "center 80%",
   },
   {
     icon: SprayCan,
@@ -126,7 +22,7 @@ const services = [
     description:
       "Limpeza profunda da parte interna do veículo, removendo sujeiras, manchas e odores para mais conforto e conservação.",
     image: HigienizacaoBg,
-    imagePosition: "center ",
+    imagePosition: "center",
   },
   {
     icon: ShieldCheck,
@@ -155,7 +51,7 @@ const Services = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView="animate"
-            className="mb-4 text-4xl font-bold text-(--foreground) md:text-5xl"
+            className="mb-4 text-4xl font-bold text-(--gold) md:text-5xl"
           >
             Nossos Serviços
           </motion.h2>

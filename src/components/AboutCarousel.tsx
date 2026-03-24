@@ -1,19 +1,13 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
-import Mecanica01 from "@/assets/Mecanica_01.webp";
-import Mecanica02 from "@/assets/Mecanica_02.webp";
-import Mecanica03 from "@/assets/Mecanica_03.webp";
-import Mecanica04 from "@/assets/Mecanica_04.webp";
-import Mecanica05 from "@/assets/Mecanica_05.webp";
-import Mecanica06 from "@/assets/Mecanica_06.webp";
+import Studio01 from "@/assets/About01.png";
+import Studio02 from "@/assets/About02.png";
+import Studio03 from "@/assets/About03.jpg";
 
 const images = [
-  { backgroundImage: Mecanica01 },
-  { backgroundImage: Mecanica02 },
-  { backgroundImage: Mecanica03 },
-  { backgroundImage: Mecanica04 },
-  { backgroundImage: Mecanica05 },
-  { backgroundImage: Mecanica06 },
+  { backgroundImage: Studio01 },
+  { backgroundImage: Studio02 },
+  { backgroundImage: Studio03 },
 ];
 
 const AboutCarousel = () => {

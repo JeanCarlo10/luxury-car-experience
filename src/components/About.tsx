@@ -1,15 +1,5 @@
-import { CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import AboutCarousel from "@/components/AboutCarousel";
-
-const features = [
-  "Mais de 30 anos de experiência",
-  "Equipe técnica especializada",
-  "Equipamentos de última geração",
-  "Peças originais e de qualidade",
-  "Garantia em todos os serviços",
-  "Atendimento personalizado",
-];
 
 const About = () => {
   return (
@@ -22,27 +12,19 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="w-full lg:w-1/2"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-(--foreground)">
-              Sobre Nossa Oficina
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-(--gold)">
+              Sobre a Luxury Car
             </h2>
             <p className="text-lg text-white/90 mb-6">
-              Somos uma oficina mecânica completa, focada em oferecer serviços
-              de alta qualidade com profissionais qualificados e equipamentos
-              modernos.
+              Na Luxury Car, cada veículo recebe um cuidado minucioso, pensado
+              para valorizar sua presença, preservar sua originalidade e elevar
+              seu padrão estético.
             </p>
             <p className="text-lg text-white/90 mb-8">
-              Nossa missão é garantir a segurança e o bom funcionamento do seu
-              veículo, com transparência, honestidade e preços justos. Cada
-              serviço é realizado com dedicação e atenção aos detalhes.
+              Unimos técnica, produtos de alta performance e atenção absoluta
+              aos detalhes para entregar brilho, proteção e acabamento à altura
+              de quem busca exclusividade em cada linha do automóvel.
             </p>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-(--gold) shrink-0 mt-1" />
-                  <span className="text-white">{feature}</span>
-                </div>
-              ))}
-            </div>
           </motion.div>
 
           <motion.div
