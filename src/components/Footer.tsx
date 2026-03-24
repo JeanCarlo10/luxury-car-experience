@@ -42,25 +42,25 @@ const Footer = () => {
             <div className="flex flex-col gap-2">
               <a
                 href="#home"
-                className="text-(--foreground) hover:text-(--foreground)/80 transition-colors duration-[400ms] md:flex justify-center"
+                className="text-(--foreground)/70 hover:text-(--foreground) transition-colors duration-400 md:flex justify-center"
               >
                 Início
               </a>
               <a
                 href="#service"
-                className="text-(--foreground) hover:text-(--foreground)/80 transition-colors duration-[400ms] md:flex justify-center"
+                className="text-(--foreground)/70 hover:text-(--foreground) transition-colors duration-400 md:flex justify-center"
               >
                 Serviços
               </a>
               <a
                 href="#about"
-                className="text-(--foreground) hover:text-(--foreground)/80 transition-colors duration-[400ms] md:flex justify-center"
+                className="text-(--foreground)/70 hover:text-(--foreground) transition-colors duration-400 md:flex justify-center"
               >
                 Sobre
               </a>
               <a
                 href="#contact"
-                className="text-(--foreground) hover:text-(--foreground)/80 transition-colors duration-[400ms] md:flex justify-center"
+                className="text-(--foreground)/70 hover:text-(--foreground) transition-colors duration-400 md:flex justify-center"
               >
                 Contato
               </a>
@@ -77,10 +77,10 @@ const Footer = () => {
               Horário de atendimento
             </h2>
             <div className="flex flex-col gap-2">
-              <span className="text-(--foreground) md:text-center">
+              <span className="text-(--foreground)/70 md:text-center">
                 Segunda - Sexta: 8:00h às 18:00h
               </span>
-              <span className="text-(--foreground) md:text-center">
+              <span className="text-(--foreground)/70 md:text-center">
                 Sábado: 8:00h às 12:00h
               </span>
             </div>

@@ -25,12 +25,14 @@
 
     --button-primary: #fff;
     --button-primary-medium: #c10007;
-
+    
     --gold: #daa520;
     --gold-metallic: #d3af37;
-
+    
     --muted: #f5f5f5;
     --muted-foreground: #bebebe;
+    
+    --gray-light: #bdc0c2;
 
     --border: #e6e6e6;
 

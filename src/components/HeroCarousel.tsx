@@ -135,7 +135,7 @@ const HeroCarousel = () => {
                     />
                   )}
 
-                  <div className="absolute inset-0 bg-black/60" />
+                  <div className="absolute inset-0 bg-black/50" />
 
                   <div className="absolute inset-0 flex items-center">
                     <div className="container mx-auto px-8">
