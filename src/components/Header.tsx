@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
-import logoImage from "@/assets/Logo_AP.png";
+import logoImage from "@/assets/Logo.png";
 import { motion } from "framer-motion";
 
 const Header = () => {
@@ -46,8 +46,8 @@ const Header = () => {
 
   return (
     <header
-      className={`h-30 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-(--secondary)" : "bg-transparent"
+      className={`h-20 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-(--blur) backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 md:px-8">
@@ -55,7 +55,7 @@ const Header = () => {
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center justify-between h-30"
+          className="flex items-center justify-between h-20"
         >
           {/* Logo */}
           <img
@@ -65,7 +65,7 @@ const Header = () => {
             height={70}
             loading="eager"
             decoding="async"
-            className="w-[130px] sm:w-[150px] h-auto"
+            className="w-[130px] sm:w-[45px] h-auto"
           />
 
           {/* Desktop Navigation */}

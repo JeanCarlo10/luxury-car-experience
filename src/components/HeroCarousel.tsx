@@ -1,18 +1,17 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
 
-import Hero01 from "@/assets/HERO_01_.webp";
-import Hero02 from "@/assets/HERO_02_.webp";
-import Hero03 from "@/assets/HERO_03_.webp";
-import Hero04 from "@/assets/HERO_04_.webp";
-import Hero05 from "@/assets/HERO_05_.webp";
-import Hero06 from "@/assets/HERO_06_.webp";
+import HeroVideo from "@/assets/Video01.mp4";
+import Hero01 from "@/assets/Img01.jpg";
+import Hero02 from "@/assets/Img01.jpg";
+import Hero03 from "@/assets/Img01.jpg";
 
 type Slide = {
   src: string;
   alt: string;
   title: string;
   subtitle: string;
+  type?: "image" | "video";
   positionMobile?: string;
   positionDesktop?: string;
   buttonVariant?: "yellow" | "red";
@@ -21,71 +20,39 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    src: Hero01,
+    src: HeroVideo,
     alt: "Hero 01",
+    type: "video",
     title: "POTÊNCIA E\nPERFORMANCE",
     subtitle:
       "Performance de verdade começa com manutenção precisa, garantindo força, estabilidade e eficiência em cada trajeto.",
-    positionMobile: "20% 40%",
-    positionDesktop: "50% 50%",
     buttonVariant: "yellow",
     textVariant: "light",
   },
-  {
-    src: Hero02,
-    alt: "Hero 02",
-    title: "AQUI VOCÊ PODE\nCONFIAR",
-    subtitle:
-      "Experiência, confiança e tecnologia para cuidar do seu veículo com a qualidade que você merece.",
-    positionMobile: "25% 35%",
-    positionDesktop: "50% 50%",
-    buttonVariant: "red",
-    textVariant: "dark",
-  },
-  {
-    src: Hero03,
-    alt: "Hero 03",
-    title: "MÊCANICA\nEM GERAL",
-    subtitle:
-      "Diagnóstico preciso e atendimento de confiança. Cuidamos do seu veículo com tecnologia, experiência e atenção a cada detalhe.",
-    positionMobile: "50% 35%",
-    positionDesktop: "50% 50%",
-    buttonVariant: "red",
-    textVariant: "light",
-  },
-  {
-    src: Hero04,
-    alt: "Hero 04",
-    title: "ALINHAMENTO E\nBALANCEAMENTO",
-    subtitle:
-      "Feitos com precisão para garantir segurança, conforto e desempenho.",
-    positionMobile: "50% 35%",
-    positionDesktop: "50% 50%",
-    buttonVariant: "red",
-    textVariant: "light",
-  },
-  {
-    src: Hero05,
-    alt: "Hero 05",
-    title: "+30 ANOS DE\nHISTÓRIA",
-    subtitle:
-      "Uma trajetória sólida no cuidado automotivo, com experiência e compromisso com a qualidade.",
-    positionMobile: "50% 35%",
-    positionDesktop: "50% 50%",
-    buttonVariant: "red",
-    textVariant: "light",
-  },
-  {
-    src: Hero06,
-    alt: "Hero 06",
-    title: "INJEÇÃO\nELETRÔNICA",
-    subtitle:
-      "Diagnóstico avançado e precisão para garantir desempenho e eficiência da injeção eletrônica.",
-    positionMobile: "25% 35%",
-    positionDesktop: "50% 50%",
-    buttonVariant: "red",
-    textVariant: "dark",
-  },
+  // {
+  //   src: Hero02,
+  //   alt: "Hero 02",
+  //   type: "image",
+  //   title: "AQUI VOCÊ PODE\nCONFIAR",
+  //   subtitle:
+  //     "Experiência, confiança e tecnologia para cuidar do seu veículo com a qualidade que você merece.",
+  //   positionMobile: "25% 35%",
+  //   positionDesktop: "50% 50%",
+  //   buttonVariant: "red",
+  //   textVariant: "light",
+  // },
+  // {
+  //   src: Hero03,
+  //   alt: "Hero 03",
+  //   type: "image",
+  //   title: "MÊCANICA\nEM GERAL",
+  //   subtitle:
+  //     "Diagnóstico preciso e atendimento de confiança. Cuidamos do seu veículo com tecnologia, experiência e atenção a cada detalhe.",
+  //   positionMobile: "50% 35%",
+  //   positionDesktop: "50% 50%",
+  //   buttonVariant: "red",
+  //   textVariant: "light",
+  // },
 ];
 
 const HeroCarousel = () => {
@@ -118,7 +85,7 @@ const HeroCarousel = () => {
             return (
               <SwiperSlide key={i} className="w-full h-full">
                 <div className="relative w-full h-full">
-                  <img
+                  {/* <img
                     src={item.src}
                     alt={item.alt}
                     className="
@@ -137,18 +104,54 @@ const HeroCarousel = () => {
                     loading={i === 0 ? "eager" : "lazy"}
                     decoding="async"
                     fetchPriority="high"
-                  />
+                  /> */}
+
+                  {item.type === "video" ? (
+                    <video
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload={i === 0 ? "auto" : "metadata"}
+                    >
+                      <source src={item.src} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className="w-full h-full object-cover object-[var(--position-mobile)] sm:object-[var(--position-desktop)]"
+                      style={
+                        {
+                          ["--position-mobile" as any]:
+                            item.positionMobile ?? "50% 50%",
+                          ["--position-desktop" as any]:
+                            item.positionDesktop ?? "50% 50%",
+                        } as React.CSSProperties
+                      }
+                      loading={i === 0 ? "eager" : "lazy"}
+                      decoding="async"
+                      fetchPriority="high"
+                    />
+                  )}
+
+                  <div className="absolute inset-0 bg-black/60" />
 
                   <div className="absolute inset-0 flex items-center">
                     <div className="container mx-auto px-8">
                       <div className="max-w-xl text-center md:text-left">
                         {/* TITLE */}
-                        <h1 className={`font-extrabold text-3xl sm:text-4xl lg:text-6xl whitespace-pre-line ${textClass}`}>
+                        <h1
+                          className={`font-extrabold text-3xl sm:text-4xl lg:text-6xl whitespace-pre-line ${textClass}`}
+                        >
                           {item.title}
                         </h1>
 
                         {/* SUBTITLE */}
-                        <p className={`mt-8 text-sm sm:text-base lg:text-l font-semibold ${textClass}`}>
+                        <p
+                          className={`mt-8 text-sm sm:text-base lg:text-l font-semibold ${textClass}`}
+                        >
                           {item.subtitle}
                         </p>
 

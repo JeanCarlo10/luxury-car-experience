@@ -1,45 +1,8 @@
-// import React, { Suspense } from "react";
-// import Header from "@/components/Header";
-// import Hero from "@/components/Hero";
-
-// // * React.lazy() carrega componentes quando necessário *
-// const Reviews = React.lazy(() => import("@/components/Reviews"));
-// const FAQ = React.lazy(() => import("@/components/FAQ"));
-// const Services = React.lazy(() => import("@/components/Services"));
-// const About = React.lazy(() => import("@/components/About"));
-// const Contact = React.lazy(() => import("@/components/Contact"));
-// const Footer = React.lazy(() => import("@/components/Footer"));
-// const WhatsAppButton = React.lazy(() => import("@/components/WhatsAppButton"));
-
-// const Index = () => {
-//   return (
-//     <div className="min-h-screen flex flex-col overflow-hidden">
-//       <Header />
-
-//       <main>
-//         <Hero />
-//         <Suspense fallback={null}>
-//           <Services />
-//           <About />
-//           <Reviews />
-//           <FAQ />
-//           <Contact />
-//           <Footer />
-//           <WhatsAppButton />
-//         </Suspense>
-//       </main>
-//     </div>
-//   );
-// };
-
-// export default Index;
-
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 
 const Reviews = React.lazy(() => import("@/components/Reviews"));
-const FAQ = React.lazy(() => import("@/components/FAQ"));
 const Services = React.lazy(() => import("@/components/Services"));
 const About = React.lazy(() => import("@/components/About"));
 const Contact = React.lazy(() => import("@/components/Contact"));
@@ -67,7 +30,7 @@ function LazyOnView({
           io.disconnect();
         }
       },
-      { rootMargin }
+      { rootMargin },
     );
 
     io.observe(el);
@@ -84,10 +47,9 @@ function WhatsAppDeferred() {
     let timeoutId: ReturnType<typeof window.setTimeout> | undefined;
 
     if ("requestIdleCallback" in window) {
-      const idleId = (window as any).requestIdleCallback(
-        () => setShow(true),
-        { timeout: 3000 }
-      );
+      const idleId = (window as any).requestIdleCallback(() => setShow(true), {
+        timeout: 3000,
+      });
 
       return () => {
         (window as any).cancelIdleCallback?.(idleId);
@@ -139,12 +101,6 @@ const Index = () => {
 
         <LazyOnView>
           <Suspense fallback={null}>
-            <FAQ />
-          </Suspense>
-        </LazyOnView>
-
-        <LazyOnView>
-          <Suspense fallback={null}>
             <Contact />
           </Suspense>
         </LazyOnView>
@@ -163,4 +119,3 @@ const Index = () => {
 };
 
 export default Index;
-
