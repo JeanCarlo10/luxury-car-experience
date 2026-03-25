@@ -11,6 +11,15 @@ import Img03 from "@/assets/homem03.jpg";
 import Img04 from "@/assets/mulher01.jpg";
 import Img05 from "@/assets/mulher02.jpg";
 import Img06 from "@/assets/mulher03.jpg";
+import Treinamento from "@/assets/Treinamento.png";
+
+const whatsappNumber = "5545999168759";
+const whatsappMessage =
+  "Olá, tenho interesse no Treinamento PPF Luxury. Gostaria de receber mais informações.";
+
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+  whatsappMessage,
+)}`;
 
 type StaticReview = {
   author_name: string;
@@ -128,7 +137,7 @@ const ReviewsStaticPetshop = () => {
   const totalRatings = STATIC_REVIEWS.length;
 
   return (
-    <section id="avaliacoes" className="py-10 bg-(--background)">
+    <section id="avaliacoes" className="py-20 bg-(--background)">
       <div className="container mx-auto px-6 md:px-8">
         <div className="text-center mb-12">
           <motion.h2
@@ -232,6 +241,24 @@ const ReviewsStaticPetshop = () => {
             );
           })}
         </Swiper>
+
+        <motion.a
+          variants={SlideUp(0.3)}
+          initial="initial"
+          whileInView="animate"
+          href={whatsappLink}
+          target="_blank"
+          rel="noreferrer"
+          className="group mt-14 flex w-full items-center justify-center overflow-hidden rounded-[28px] border-2 border-(--gold)/40"
+        >
+          <img
+            src={Treinamento}
+            alt="Banner Treinamento PPF"
+            className="max-h-[350px] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            // className="h-[220px] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02] md:h-[280px] lg:h-[300px]"
+            loading="lazy"
+          />
+        </motion.a>
       </div>
     </section>
   );

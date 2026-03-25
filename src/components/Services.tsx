@@ -7,6 +7,8 @@ import HigienizacaoBg from "@/assets/Service04.png";
 import PPFBg from "@/assets/Service02.jpg";
 import VitrificacaoBg from "@/assets/Service03.jpg";
 
+const whatsappNumber = "5549999999999";
+
 const services = [
   {
     icon: Sparkles,
@@ -15,6 +17,8 @@ const services = [
       "Remove marcas leves, microrriscos e opacidade da pintura, devolvendo brilho e profundidade à cor do veículo.",
     image: PolimentoBg,
     imagePosition: "center 80%",
+    whatsappMessage:
+      "Olá, gostaria de mais informações sobre o serviço de Polimento Técnico.",
   },
   {
     icon: SprayCan,
@@ -23,6 +27,8 @@ const services = [
       "Limpeza profunda da parte interna do veículo, removendo sujeiras, manchas e odores para mais conforto e conservação.",
     image: HigienizacaoBg,
     imagePosition: "center",
+    whatsappMessage:
+      "Olá, gostaria de mais informações sobre Higienização Interna.",
   },
   {
     icon: ShieldCheck,
@@ -31,6 +37,8 @@ const services = [
       "Película transparente de alta proteção que ajuda a preservar a pintura contra riscos leves, sujeira e desgaste diário.",
     image: PPFBg,
     imagePosition: "center 100%",
+    whatsappMessage:
+      "Olá, gostaria de receber mais informações sobre aplicação de PPF.",
   },
   {
     icon: Shield,
@@ -39,6 +47,8 @@ const services = [
       "Aplica uma camada de proteção de alta durabilidade sobre a pintura, ajudando a conservar o brilho e facilitar a limpeza.",
     image: VitrificacaoBg,
     imagePosition: "center 75%",
+    whatsappMessage:
+      "Olá, gostaria de mais informações sobre Vitrificação de Pintura.",
   },
 ];
 
@@ -70,6 +80,9 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
+            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+              service.whatsappMessage,
+            )}`;
 
             return (
               <motion.div
@@ -79,37 +92,53 @@ const Services = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
-                <article className="group relative h-[400px] overflow-hidden rounded-2xl cursor-pointer">
+                <article className="group/card relative h-[400px] cursor-pointer overflow-hidden rounded-2xl">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover/card:scale-105"
                     style={{ objectPosition: service.imagePosition }}
                   />
 
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/45 transition-all duration-500 group-hover:bg-black/60" />
+                  <div className="absolute inset-0 bg-black/45 transition-all duration-500 group-hover/card:bg-black/60" />
 
                   {/* Center content before hover */}
-                  <div className="absolute inset-0 z-10 flex items-center justify-center px-6 text-center transition-all duration-500 group-hover:opacity-0 group-hover:scale-95">
-                    <div className=" flex items-center text-white gap-3">
+                  <div className="absolute inset-0 z-10 flex items-center justify-center px-6 text-center transition-all duration-500 group-hover/card:scale-95 group-hover/card:opacity-0">
+                    <div className="flex items-center gap-3 text-white">
                       <Icon className="h-12 w-12" />
-                      <h3 className=" text-3xl font-bold ">{service.title}</h3>
+                      <h3 className="text-3xl font-bold">{service.title}</h3>
                     </div>
                   </div>
 
                   {/* Bottom content after hover */}
                   <div className="absolute inset-x-0 bottom-0 z-20 p-6 md:p-7">
-                    <div className="translate-y-6 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                    <div className="translate-y-6 opacity-0 transition-all duration-500 group-hover/card:translate-y-0 group-hover/card:opacity-100">
                       <h3 className="text-3xl font-bold text-white">
                         {service.title}
                       </h3>
 
-                      <div className="mt-5 h-px w-full origin-left scale-x-0 bg-white/25 transition-transform duration-500 group-hover:scale-x-100" />
+                      <div className="mt-5 h-px w-full origin-left scale-x-0 bg-white/25 transition-transform duration-500 group-hover/card:scale-x-100" />
 
-                      <p className="mt-4 max-w-[95%] text-base leading-relaxed text-white/80 opacity-0 transition-all duration-500 delay-100 group-hover:opacity-100">
+                      <p className="mt-4 max-w-[95%] text-base leading-relaxed text-white/80 opacity-0 transition-all duration-500 delay-100 group-hover/card:opacity-100">
                         {service.description}
                       </p>
+
+                      <a
+                        href={whatsappLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="group/btn relative mt-5 inline-flex h-11 items-center justify-center overflow-hidden bg-(--gold) px-5 font-semibold text-black transition-all duration-300 hover:brightness-105 [clip-path:polygon(12px_0,100%_0,calc(100%-12px)_100%,0_100%)]"
+                      >
+                        <span className="flex items-center gap-2 transition-all duration-300 group-hover/btn:-translate-y-full group-hover/btn:opacity-0">
+                          <span>Agendar avaliação</span>
+                        </span>
+
+                        <span className="absolute inset-0 flex translate-y-full items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover/btn:translate-y-0 group-hover/btn:opacity-100">
+                          <span>Agendar avaliação</span>
+                        </span>
+                      </a>
                     </div>
                   </div>
                 </article>
