@@ -72,13 +72,10 @@ const Contact = () => {
 
   const onSubmit = (data: QuoteFormData) => {
     const serviceTextMap: Record<string, string> = {
-      "manutencao-preventiva": "Manutenção Preventiva",
-      "revisao-completa": "Revisão Completa",
-      "troca-oleo": "Troca de Óleo",
-      freios: "Sistema de Freios",
-      suspensao: "Suspensão",
-      eletrica: "Parte Elétrica",
-      motor: "Motor",
+      higienizacao: "Higienização interna",
+      polimento: "Polimento técnico",
+      ppf: "PPF (Paint Protection Film)",
+      vitrificacao: "Vitrificação de pintura",
       outro: "Outro",
     };
 
@@ -128,13 +125,14 @@ const Contact = () => {
             whileInView={"animate"}
             className="text-lg text-(--muted-foreground) max-w-2xl mx-auto"
           >
-            Estamos prontos para oferecer cuidado premium, proteção e acabamento impecável ao seu veículo.
+            Estamos prontos para oferecer cuidado premium, proteção e acabamento
+            impecável ao seu veículo.
           </motion.p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Form */}
-          <div className="rounded-lg p-6 shadow-custom">
+          <div className="rounded-2xl p-6 bg-(--card)">
             <div className="flex flex-col gap-2">
               <h1 className="text-(--foreground) text-3xl font-semibold">
                 Solicitar Orçamento
@@ -161,7 +159,7 @@ const Contact = () => {
                         <Input
                           {...field}
                           placeholder="Seu nome completo"
-                          className="text-amber-300 placeholder:text-white/40 placeholder:italic border border-(--card) focus:border-(--gold) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
+                          className="text-amber-300 placeholder:text-white/40 placeholder:italic bg-black border border-(--border-dark) focus:border-(--gold) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
                         />
                       </FormControl>
                       <FormMessage className="text-(--ring)" />
@@ -182,7 +180,7 @@ const Contact = () => {
                           {...field}
                           type="email"
                           placeholder="seu@email.com"
-                          className="text-amber-300 placeholder:text-white/40 placeholder:italic border border-(--card) focus:border-(--gold) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
+                          className="text-amber-300 placeholder:text-white/40 placeholder:italic bg-black border border-(--border-dark) focus:border-(--gold) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
                         />
                       </FormControl>
                       <FormMessage className="text-(--ring)" />
@@ -203,7 +201,7 @@ const Contact = () => {
                           {...field}
                           mask="(00) 00000-0000"
                           placeholder="(99) 99999-9999"
-                          className="text-amber-300 placeholder:text-white/40 placeholder:italic border border-(--card) focus:border-(--gold) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
+                          className="text-amber-300 placeholder:text-white/40 placeholder:italic bg-black border border-(--border-dark) focus:border-2 focus:border-(--gold) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
                         />
                       </FormControl>
                       <FormMessage className="text-(--ring)" />
@@ -230,34 +228,34 @@ const Contact = () => {
                               onValueChange={controllerField.onChange}
                             >
                               <FormControl>
-                                <SelectTrigger className="text-amber-300 border border-(--card) focus:border-(--gold) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full data-[placeholder]:italic data-[placeholder]:text-white/40">
+                                <SelectTrigger className="text-amber-300 bg-black border border-(--border-dark) focus:border-(--gold) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full data-[placeholder]:italic data-[placeholder]:text-white/40">
                                   <SelectValue placeholder="Selecione o serviço" />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent className="bg-[#191919] border-(--card)">
                                 <SelectItem
-                                  value="manutencao-preventiva"
+                                  value="higienizacao"
                                   className="hover:bg-(background) text-(--gold) focus:bg-(--background)"
                                 >
-                                  Manutenção Preventiva
+                                  Higienização interna
                                 </SelectItem>
                                 <SelectItem
-                                  value="revisao-completa"
+                                  value="polimento"
                                   className="hover:bg-(background) text-(--gold) focus:bg-(--background)"
                                 >
-                                  Revisão Completa
+                                  Polimento técnico
                                 </SelectItem>
                                 <SelectItem
-                                  value="troca-oleo"
+                                  value="ppf"
                                   className="hover:bg-(background) text-(--gold) focus:bg-(--background)"
                                 >
-                                  Troca de Óleo
+                                  PPF
                                 </SelectItem>
                                 <SelectItem
-                                  value="freios"
+                                  value="vitrificacao"
                                   className="hover:bg-(background) text-(--gold) focus:bg-(--background)"
                                 >
-                                  Sistema de Freios
+                                  Vitrificação de pintura
                                 </SelectItem>
                                 <SelectItem
                                   value="outro"
@@ -286,8 +284,8 @@ const Contact = () => {
                       <FormControl>
                         <Textarea
                           {...field}
-                          placeholder="Descreva o problema ou serviço desejado..."
-                          className="min-h-[150px] text-amber-300 placeholder:text-white/40 placeholder:italic border border-(--card) focus:border-(--gold) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
+                          placeholder="Descreva o serviço desejado..."
+                          className="min-h-[120px] text-amber-300 placeholder:text-white/40 placeholder:italic bg-black border border-(--border-dark) focus:border-(--gold) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
                         />
                       </FormControl>
                       <FormMessage className="text-(--ring)" />
@@ -297,9 +295,14 @@ const Contact = () => {
 
                 <Button
                   type="submit"
-                  className="w-full py-6 bg-(--sub-card) text-white font-semibold rounded-lg cursor-pointer"
+                  className="w-full group relative overflow-hidden px-6 py-6 bg-(--gold) border border-(--border-dark) text-black text-lg font-bold rounded-lg cursor-pointer"
                 >
-                  Enviar solicitação
+                  <span className="block transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-0">
+                    Enviar solicitação
+                  </span>
+                  <span className="absolute inset-0 flex items-center justify-center translate-y-full opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                    Enviar solicitação
+                  </span>
                 </Button>
               </form>
             </Form>
@@ -307,7 +310,7 @@ const Contact = () => {
 
           {/* Contact Info Cards */}
           <div className="flex flex-col gap-8">
-            <div className="rounded-lg p-6 shadow-custom flex flex-col gap-8">
+            <div className="rounded-2xl p-6 bg-(--card) flex flex-col gap-8">
               <div className="flex flex-col md:flex-row">
                 <div className="min-w-12 min-h-12 w-12 h-12 bg-(--sub-card) rounded-full flex items-center justify-center mr-4 mb-1">
                   <FaWhatsapp className="w-6 h-6 text-(--gold)" />
@@ -364,7 +367,7 @@ const Contact = () => {
             </div>
 
             {/* Map */}
-            <div className="rounded-lg p-4 overflow-hidden shadow-custom">
+            <div className="rounded-2xl p-4 overflow-hidden bg-(--card)">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14400.403868883946!2d-54.60115781337539!3d-25.535013481787537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f6911fb77e4adf%3A0x20288ad48b18ce4f!2zQW5kcsOpIFBlbMOtY3VsYXM!5e0!3m2!1spt-BR!2sbr!4v1774284994748!5m2!1spt-BR!2sbr"
                 width="100%"

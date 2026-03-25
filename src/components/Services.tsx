@@ -7,7 +7,7 @@ import HigienizacaoBg from "@/assets/Service04.png";
 import PPFBg from "@/assets/Service02.jpg";
 import VitrificacaoBg from "@/assets/Service03.jpg";
 
-const whatsappNumber = "5549999999999";
+const whatsappNumber = "5545999168759";
 
 const services = [
   {
@@ -118,8 +118,8 @@ const Services = () => {
                         {service.title}
                       </h3>
 
-                      <div className="mt-5 h-px w-full origin-left scale-x-0 bg-white/25 transition-transform duration-500 group-hover/card:scale-x-100" />
-
+                      <div className="mt-5 h-0.5 w-full origin-left rounded-4xl scale-x-0 bg-gradient-to-r from-[var(--gold)] via-[var(--gold)]/60 to-transparent transition-transform duration-700 group-hover/card:scale-x-100" />
+                      
                       <p className="mt-4 max-w-[95%] text-base leading-relaxed text-white/80 opacity-0 transition-all duration-500 delay-100 group-hover/card:opacity-100">
                         {service.description}
                       </p>
