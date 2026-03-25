@@ -118,9 +118,9 @@ const Contact = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView={"animate"}
-            className="text-4xl text-(--foreground) md:text-5xl font-bold mb-4"
+            className="text-4xl text-(--gold) md:text-5xl font-bold mb-4"
           >
-            Entre em contato
+            Agende seu atendimento
           </motion.h2>
           <motion.p
             variants={SlideUp(0.4)}
@@ -128,7 +128,7 @@ const Contact = () => {
             whileInView={"animate"}
             className="text-lg text-(--muted-foreground) max-w-2xl mx-auto"
           >
-            Estamos prontos para atender você e cuidar do seu veículo
+            Estamos prontos para oferecer cuidado premium, proteção e acabamento impecável ao seu veículo.
           </motion.p>
         </div>
 
@@ -161,7 +161,7 @@ const Contact = () => {
                         <Input
                           {...field}
                           placeholder="Seu nome completo"
-                          className="text-amber-300 placeholder:text-white/40 placeholder:italic border-2 border-(--card) focus:border-(--secondary) focus:ring-2 focus:ring-(--primary) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
+                          className="text-amber-300 placeholder:text-white/40 placeholder:italic border border-(--card) focus:border-(--gold) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
                         />
                       </FormControl>
                       <FormMessage className="text-(--ring)" />
@@ -182,7 +182,7 @@ const Contact = () => {
                           {...field}
                           type="email"
                           placeholder="seu@email.com"
-                          className="text-amber-300 placeholder:text-white/40 placeholder:italic border-2 border-(--card) focus:border-(--secondary) focus:ring-2 focus:ring-(--primary) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
+                          className="text-amber-300 placeholder:text-white/40 placeholder:italic border border-(--card) focus:border-(--gold) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
                         />
                       </FormControl>
                       <FormMessage className="text-(--ring)" />
@@ -203,7 +203,7 @@ const Contact = () => {
                           {...field}
                           mask="(00) 00000-0000"
                           placeholder="(99) 99999-9999"
-                          className="text-amber-300 placeholder:text-white/40 placeholder:italic border-2 border-(--card) focus:border-(--secondary) focus:ring-1 focus:ring-(--primary) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
+                          className="text-amber-300 placeholder:text-white/40 placeholder:italic border border-(--card) focus:border-(--gold) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
                         />
                       </FormControl>
                       <FormMessage className="text-(--ring)" />
@@ -230,56 +230,38 @@ const Contact = () => {
                               onValueChange={controllerField.onChange}
                             >
                               <FormControl>
-                                <SelectTrigger className="text-amber-300 border-2 border-(--card) focus:border-(--secondary) focus:ring-1 focus:ring-(--primary) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full data-[placeholder]:italic data-[placeholder]:text-white/40">
+                                <SelectTrigger className="text-amber-300 border border-(--card) focus:border-(--gold) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full data-[placeholder]:italic data-[placeholder]:text-white/40">
                                   <SelectValue placeholder="Selecione o serviço" />
                                 </SelectTrigger>
                               </FormControl>
-                              <SelectContent className="bg-white border-(--input)">
+                              <SelectContent className="bg-[#191919] border-(--card)">
                                 <SelectItem
                                   value="manutencao-preventiva"
-                                  className="hover:bg-(--primary) hover:text-white focus:bg-(--primary) focus:text-white"
+                                  className="hover:bg-(background) text-(--gold) focus:bg-(--background)"
                                 >
                                   Manutenção Preventiva
                                 </SelectItem>
                                 <SelectItem
                                   value="revisao-completa"
-                                  className="hover:bg-(--primary) hover:text-white focus:bg-(--primary) focus:text-white"
+                                  className="hover:bg-(background) text-(--gold) focus:bg-(--background)"
                                 >
                                   Revisão Completa
                                 </SelectItem>
                                 <SelectItem
                                   value="troca-oleo"
-                                  className="hover:bg-(--primary) hover:text-white focus:bg-(--primary) focus:text-white"
+                                  className="hover:bg-(background) text-(--gold) focus:bg-(--background)"
                                 >
                                   Troca de Óleo
                                 </SelectItem>
                                 <SelectItem
                                   value="freios"
-                                  className="hover:bg-(--primary) hover:text-white focus:bg-(--primary) focus:text-white"
+                                  className="hover:bg-(background) text-(--gold) focus:bg-(--background)"
                                 >
                                   Sistema de Freios
                                 </SelectItem>
                                 <SelectItem
-                                  value="suspensao"
-                                  className="hover:bg-(--primary) hover:text-white focus:bg-(--primary) focus:text-white"
-                                >
-                                  Suspensão
-                                </SelectItem>
-                                <SelectItem
-                                  value="eletrica"
-                                  className="hover:bg-(--primary) hover:text-white focus:bg-(--primary) focus:text-white"
-                                >
-                                  Parte Elétrica
-                                </SelectItem>
-                                <SelectItem
-                                  value="motor"
-                                  className="hover:bg-(--primary) hover:text-white focus:bg-(--primary) focus:text-white"
-                                >
-                                  Motor
-                                </SelectItem>
-                                <SelectItem
                                   value="outro"
-                                  className="hover:bg-(--primary) hover:text-white focus:bg-(--primary) focus:text-white"
+                                  className="hover:bg-(background) text-(--gold) focus:bg-(--background)"
                                 >
                                   Outro
                                 </SelectItem>
@@ -305,7 +287,7 @@ const Contact = () => {
                         <Textarea
                           {...field}
                           placeholder="Descreva o problema ou serviço desejado..."
-                          className="min-h-[150px] text-amber-300 placeholder:text-white/40 placeholder:italic border-2 border-(--card) focus:border-(--secondary) focus:ring-2 focus:ring-(--primary) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
+                          className="min-h-[150px] text-amber-300 placeholder:text-white/40 placeholder:italic border border-(--card) focus:border-(--gold) focus:outline-none h-10 px-3 py-2 shadow-none rounded-md w-full"
                         />
                       </FormControl>
                       <FormMessage className="text-(--ring)" />
@@ -332,7 +314,9 @@ const Contact = () => {
                 </div>
 
                 <div className="flex flex-col">
-                  <span className="text-white text-lg font-semibold">WhatsApp</span>
+                  <span className="text-white text-lg font-semibold">
+                    WhatsApp
+                  </span>
 
                   <a
                     href={WHATSAPP_LINK}
@@ -351,7 +335,9 @@ const Contact = () => {
                   <Mail className="w-6 h-6 text-(--gold)" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-white text-lg font-semibold">E-mail</span>
+                  <span className="text-white text-lg font-semibold">
+                    E-mail
+                  </span>
                   <a
                     className="text-white/70 sm:text-base md:text-sm lg:text-base"
                     href="mailto:luxurycar@gmail.com"
@@ -366,7 +352,9 @@ const Contact = () => {
                   <MapPin className="w-6 h-6 text-(--gold)" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-white text-lg font-semibold">Endereço</span>
+                  <span className="text-white text-lg font-semibold">
+                    Endereço
+                  </span>
                   <span className="text-white/70 text-base flex-wrap">
                     Rua Marechal Floriano Peixoto, 2182 - Centro - Foz do Iguaçu
                     - PR

@@ -2,9 +2,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
 
 import HeroVideo from "@/assets/Video01.mp4";
-import Hero01 from "@/assets/Img01.jpg";
-import Hero02 from "@/assets/Img01.jpg";
-import Hero03 from "@/assets/Img01.jpg";
 
 type Slide = {
   src: string;

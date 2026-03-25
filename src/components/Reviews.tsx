@@ -14,10 +14,10 @@ import Img06 from "@/assets/mulher03.jpg";
 
 type StaticReview = {
   author_name: string;
-  rating: number; 
+  rating: number;
   text: string;
   relative_time_description?: string;
-  profile_photo_url?: string; 
+  profile_photo_url?: string;
 };
 
 const STATIC_REVIEWS: StaticReview[] = [
@@ -25,42 +25,42 @@ const STATIC_REVIEWS: StaticReview[] = [
     author_name: "Mariana S.",
     rating: 5,
     relative_time_description: "há 2 semanas",
-    text: "Atendimento impecável! Levei meu cachorro para banho e tosa e ele voltou cheiroso, lindo e super tranquilo. Dá pra ver o carinho com os pets.",
+    text: "Atendimento impecável! Meu carro voltou com um brilho incrível e acabamento perfeito. Dá para ver o cuidado em cada detalhe.",
     profile_photo_url: Img04,
   },
   {
     author_name: "Carlos Henrique",
     rating: 5,
     relative_time_description: "há 1 mês",
-    text: "Melhor preço em rações e entrega muito rápida. Pedi pelo WhatsApp e chegou no mesmo dia. Recomendo demais!",
+    text: "Serviço de altíssimo nível. Fiz vitrificação e o resultado ficou excelente, com muito brilho e proteção na pintura.",
     profile_photo_url: Img01,
   },
   {
     author_name: "Amanda P.",
     rating: 5,
     relative_time_description: "há 3 dias",
-    text: "Minha gata é bem estressada, mas aqui ela foi atendida com calma e atenção. Equipe muito paciente e cuidadosa.",
+    text: "Levei meu carro para higienização interna e fiquei impressionada. Interior limpo, cheiro agradável e acabamento muito caprichado.",
     profile_photo_url: Img05,
   },
   {
     author_name: "João Vitor",
     rating: 4,
     relative_time_description: "há 2 meses",
-    text: "Loja bem completa, sempre encontro o que preciso. Atendimento no balcão é rápido e educado.",
+    text: "Ambiente organizado, equipe atenciosa e serviço muito bem executado. Meu veículo ficou com aparência renovada.",
     profile_photo_url: Img02,
   },
   {
     author_name: "Patrícia L.",
     rating: 5,
     relative_time_description: "há 5 dias",
-    text: "Agendei banho e tosa pelo WhatsApp e foi super fácil. Meu pet voltou lindo e o ambiente é muito organizado.",
+    text: "Agendamento fácil e atendimento excelente. Fiz polimento técnico e o carro voltou com brilho e profundidade na pintura.",
     profile_photo_url: Img06,
   },
   {
     author_name: "Rafael A.",
     rating: 5,
     relative_time_description: "há 1 semana",
-    text: "Ótima clínica! Levei para vacina e fui muito bem orientado. Atendimento humano, sem pressa e com cuidado de verdade.",
+    text: "Profissionais muito cuidadosos e detalhistas. Serviço premium, com resultado acima das expectativas.",
     profile_photo_url: Img03,
   },
 ];
@@ -88,7 +88,10 @@ function Stars({ rating, size = 18 }: { rating: number; size?: number }) {
       ))}
 
       {hasHalf && (
-        <span className="relative inline-block" style={{ width: size, height: size }}>
+        <span
+          className="relative inline-block"
+          style={{ width: size, height: size }}
+        >
           <Star style={{ width: size, height: size }} className={emptyClass} />
           <span className="absolute inset-0 overflow-hidden w-1/2">
             <Star
@@ -132,11 +135,9 @@ const ReviewsStaticPetshop = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView={"animate"}
-            className="text-4xl md:text-5xl font-bold mb-3 text-(--foreground) second-font"
+            className="text-4xl md:text-5xl font-bold mb-3 text-(--gold)"
           >
-            <span>
-              O que os clientes dizem sobre nós
-            </span>
+            Excelência reconhecida por nossos clientes
           </motion.h2>
 
           <motion.p
@@ -145,7 +146,8 @@ const ReviewsStaticPetshop = () => {
             whileInView={"animate"}
             className="text-lg text-(--muted-foreground) max-w-2xl mx-auto"
           >
-            A confiança e o carinho dos nossos clientes são o que nos motivam todos os dias.
+            Depoimentos de clientes que escolheram cuidado premium, proteção e
+            acabamento de alto padrão.
           </motion.p>
         </div>
 
@@ -161,11 +163,15 @@ const ReviewsStaticPetshop = () => {
                 className="h-8 w-auto"
                 loading="lazy"
               />
-              <span className="text-lg font-semibold text-white">Avaliações</span>
+              <span className="text-lg font-semibold text-white">
+                Avaliações
+              </span>
             </div>
 
             <div className="mt-2 flex items-center gap-2">
-              <span className="text-3xl font-bold text-white">{ratingAvg.toFixed(1)}</span>
+              <span className="text-3xl font-bold text-white">
+                {ratingAvg.toFixed(1)}
+              </span>
               <Stars rating={ratingAvg} size={20} />
               <span className="text-sm text-white/70">({totalRatings})</span>
             </div>
@@ -217,7 +223,9 @@ const ReviewsStaticPetshop = () => {
                   <Stars rating={r.rating ?? 0} />
 
                   <div className="mt-3 flex-1">
-                    <p className="text-(--foreground) text-sm leading-relaxed">{short}</p>
+                    <p className="text-(--foreground) text-sm leading-relaxed">
+                      {short}
+                    </p>
                   </div>
                 </div>
               </SwiperSlide>
