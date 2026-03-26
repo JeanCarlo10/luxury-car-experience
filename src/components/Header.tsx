@@ -3,51 +3,120 @@ import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import logoImage from "@/assets/Logo.png";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+const navItems = [
+  { label: "INÍCIO", id: "home" },
+  { label: "SERVIÇOS", id: "service" },
+  { label: "SOBRE", id: "about" },
+  { label: "CONTATO", id: "contact" },
+];
 
 const Header = () => {
   const isMobile = useIsMobile();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
-  // Scroll Listener otimizado
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
+      if (ticking) return;
+
+      ticking = true;
       window.requestAnimationFrame(() => {
         setIsScrolled(window.scrollY > 90);
+        ticking = false;
       });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Fecha menu mobile ao mudar para desktop
   useEffect(() => {
     if (!isMobile) setIsMobileMenuOpen(false);
   }, [isMobile]);
 
-  // Função para scroll nas seções
   const scrollToSection = useCallback((id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
-    el.scrollIntoView({ behavior: "smooth" });
+
+    const headerOffset = 80;
+    const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+
     setIsMobileMenuOpen(false);
   }, []);
 
-  // Função para desabilitar o scroll do body quando o menu está aberto
+  useEffect(() => {
+    const handleActiveSection = () => {
+      if (isMobileMenuOpen) return;
+
+      const headerOffset = 120;
+
+      const sections = navItems
+        .map((item) => document.getElementById(item.id))
+        .filter(Boolean) as HTMLElement[];
+
+      if (!sections.length) return;
+
+      let currentSection = "home";
+      let smallestDistance = Number.POSITIVE_INFINITY;
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const distance = Math.abs(rect.top - headerOffset);
+
+        if (rect.top <= headerOffset && distance < smallestDistance) {
+          smallestDistance = distance;
+          currentSection = section.id;
+        }
+      });
+
+      if (window.scrollY < 120) {
+        currentSection = "home";
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    handleActiveSection();
+    window.addEventListener("scroll", handleActiveSection, { passive: true });
+    window.addEventListener("resize", handleActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", handleActiveSection);
+      window.removeEventListener("resize", handleActiveSection);
+    };
+  }, [isMobileMenuOpen]);
+
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [isMobileMenuOpen]);
 
   return (
     <header
-      className={`h-20 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-(--blur) backdrop-blur-md" : "bg-transparent"
+      className={`fixed left-0 right-0 top-0 z-50 h-20 transition-all duration-300 ${
+        isScrolled
+          ? "bg-(--blur) backdrop-blur-md border-b border-white/10"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 md:px-8">
@@ -55,10 +124,17 @@ const Header = () => {
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center justify-between h-20"
+          className="flex h-20 items-center justify-between"
         >
           {/* Logo */}
-          <a href="#home" className="cursor-pointer">
+          <a
+            href="#home"
+            className="cursor-pointer"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("home");
+            }}
+          >
             <img
               src={logoImage}
               alt="Logo - Luxury Car Experience"
@@ -66,63 +142,42 @@ const Header = () => {
               height={70}
               loading="eager"
               decoding="async"
-              className="w-[130px] sm:w-[45px] h-auto"
+              className="h-auto w-[130px] sm:w-[45px]"
             />
           </a>
 
           {/* Desktop Navigation */}
           {!isMobile && (
             <nav
-              className="flex items-center gap-16"
+              className="flex items-center gap-14"
               aria-label="Menu principal"
             >
-              <a
-                href="#home"
-                className="relative group text-xl font-500 text-(--secondary-foreground)"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("home");
-                }}
-              >
-                INÍCIO
-                <span className="absolute left-0 bottom-0 block h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500 ease-in-out transform group-hover:scale-x-100"></span>
-              </a>
+              {navItems.map((item) => {
+                const isActive = activeSection === item.id;
 
-              <a
-                href="#service"
-                className="relative group text-xl font-500 text-(--secondary-foreground)"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("service");
-                }}
-              >
-                SERVIÇOS
-                <span className="absolute left-0 bottom-0 block h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500 ease-in-out transform group-hover:scale-x-100"></span>
-              </a>
-
-              <a
-                href="#about"
-                className="relative group text-xl font-500 text-(--secondary-foreground)"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("about");
-                }}
-              >
-                SOBRE
-                <span className="absolute left-0 bottom-0 block h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500 ease-in-out transform group-hover:scale-x-100"></span>
-              </a>
-
-              <a
-                href="#contact"
-                className="relative group text-xl font-500 text-(--secondary-foreground)"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("contact");
-                }}
-              >
-                CONTATO
-                <span className="absolute left-0 bottom-0 block h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500 ease-in-out transform group-hover:scale-x-100"></span>
-              </a>
+                return (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className={`group relative text-lg font-medium tracking-[0.18em] transition-colors duration-300 ${
+                      isActive
+                        ? "text-(--gold)"
+                        : "text-(--secondary-foreground) hover:text-(--gold)"
+                    }`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.id);
+                    }}
+                  >
+                    {item.label}
+                    <span
+                      className={`absolute -bottom-2 left-1/2 h-px -translate-x-1/2 bg-(--gold) transition-all duration-500 ease-out ${
+                        isActive ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
+                    />
+                  </a>
+                );
+              })}
             </nav>
           )}
 
@@ -134,119 +189,113 @@ const Header = () => {
                   ? "Fechar menu de navegação"
                   : "Abrir menu de navegação"
               }
-              className={"cursor-pointer"}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="cursor-pointer"
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             >
-              {/* Animação para o menu de hambúrguer transformando em "X" */}
-              <motion.div
-                className="w-6 h-1 bg-white mb-1"
-                animate={{
-                  rotate: isMobileMenuOpen ? 45 : 0,
-                  y: isMobileMenuOpen ? 8 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-              />
-              <motion.div
-                className="w-6 h-1 bg-white mb-1"
-                animate={{
-                  opacity: isMobileMenuOpen ? 0 : 1,
-                }}
-                transition={{ duration: 0.3 }}
-              />
-              <motion.div
-                className="w-6 h-1 bg-white"
-                animate={{
-                  rotate: isMobileMenuOpen ? -45 : 0,
-                  y: isMobileMenuOpen ? -8 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-              />
+              <div className="flex flex-col gap-1">
+                <motion.div
+                  className="h-0.5 w-6 bg-white"
+                  animate={{
+                    rotate: isMobileMenuOpen ? 45 : 0,
+                    y: isMobileMenuOpen ? 6 : 0,
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.div
+                  className="h-0.5 w-6 bg-white"
+                  animate={{
+                    opacity: isMobileMenuOpen ? 0 : 1,
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.div
+                  className="h-0.5 w-6 bg-white"
+                  animate={{
+                    rotate: isMobileMenuOpen ? -45 : 0,
+                    y: isMobileMenuOpen ? -6 : 0,
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+              </div>
             </button>
           )}
         </motion.div>
 
         {/* Mobile Navigation */}
-        {isMobile && isMobileMenuOpen && (
-          <>
-            {/* Overlay */}
-            <div
-              className="fixed inset-0 bg-black opacity-80 z-40"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-
-            <motion.nav
-              aria-label="Menu móvel"
-              className="fixed inset-y-0 right-0 w-[80%] sm:w-[70%] bg-(--secondary) py-12 px-8 z-50 flex flex-col overflow-y-auto"
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 100 }}
-              transition={{ duration: 0.3 }}
-            >
-              <button
-                aria-label="Fechar menu de navegação"
+        <AnimatePresence>
+          {isMobile && isMobileMenuOpen && (
+            <>
+              <motion.div
+                className="fixed inset-0 z-40 bg-black/80"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="absolute top-4 right-4 text-white cursor-pointer"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
+              />
+
+              <motion.nav
+                aria-label="Menu móvel"
+                className="fixed right-0 top-0 z-50 flex h-dvh w-[86%] max-w-[380px] flex-col bg-(--secondary) px-8 pb-8 pt-24 shadow-2xl"
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               >
-                <X size={28} />
-              </button>
-
-              <div className="flex flex-col gap-12">
-                <a
-                  href="#home"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("home");
-                  }}
-                  className="text-white text-3xl hover:text-(--primary) transition-colors text-left focus-visible:outline-primary"
+                <button
+                  aria-label="Fechar menu de navegação"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="absolute right-5 top-5 cursor-pointer text-white"
                 >
-                  Início
-                </a>
+                  <X size={28} />
+                </button>
 
-                <a
-                  href="#service"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("service");
-                  }}
-                  className="text-white text-3xl hover:text-(--primary) transition-colors text-left focus-visible:outline-primary"
-                >
-                  Serviços
-                </a>
+                <div className="flex flex-1 flex-col justify-between">
+                  <div className="flex flex-col gap-10">
+                    {navItems.map((item) => {
+                      const isActive = activeSection === item.id;
 
-                <a
-                  href="#about"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("about");
-                  }}
-                  className="text-white text-3xl hover:text-(--primary) transition-colors text-left focus-visible:outline-primary"
-                >
-                  Sobre
-                </a>
+                      return (
+                        <a
+                          key={item.id}
+                          href={`#${item.id}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            scrollToSection(item.id);
+                          }}
+                          className={`relative w-fit text-left text-3xl transition-colors duration-300 ${
+                            isActive
+                              ? "text-(--gold)"
+                              : "text-white hover:text-(--gold)"
+                          }`}
+                        >
+                          {item.label}
+                          <span
+                            className={`absolute -bottom-2 left-0 h-px bg-(--gold) transition-all duration-500 ${
+                              isActive ? "w-full" : "w-0"
+                            }`}
+                          />
+                        </a>
+                      );
+                    })}
+                  </div>
 
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("contact");
-                  }}
-                  className="text-white text-3xl hover:text-(--primary) transition-colors text-left focus-visible:outline-primary"
-                >
-                  Contato
-                </a>
-              </div>
-
-              <div className="flex flex-1 items-end">
-                <Button
-                  onClick={() => scrollToSection("contact")}
-                  className="bg-(--foreground) text-black cursor-pointer hover:opacity-90 transition-opacity w-full "
-                >
-                  Agendar
-                </Button>
-              </div>
-            </motion.nav>
-          </>
-        )}
+                  <Button
+                    onClick={() => scrollToSection("contact")}
+                    className="group relative mt-10 w-full cursor-pointer overflow-hidden rounded-none border border-(--border-dark) bg-(--gold) px-6 py-6 text-lg font-bold text-black [clip-path:polygon(12px_0,100%_0,calc(100%-12px)_100%,0_100%)]"
+                  >
+                    <span className="block transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-0">
+                      Agendar
+                    </span>
+                    <span className="absolute inset-0 flex translate-y-full items-center justify-center opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                      Agendar
+                    </span>
+                  </Button>
+                </div>
+              </motion.nav>
+            </>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );

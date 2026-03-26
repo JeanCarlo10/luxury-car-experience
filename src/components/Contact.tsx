@@ -136,7 +136,6 @@ const Contact = () => {
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            // className="w-full lg:w-1/2"
             className="rounded-2xl p-6 bg-(--card) border border-white/10"
           >
             <div className="flex flex-col gap-2">
