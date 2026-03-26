@@ -117,13 +117,22 @@ const FAQ = () => {
                 <motion.div key={index} variants={item}>
                   <AccordionItem
                     value={`item-${index}`}
-                    className="rounded-2xl border border-white/10 bg-(--card) px-6 "
+                    className="rounded-2xl border border-white/10 bg-(--card) px-5"
                   >
-                    <AccordionTrigger className="group cursor-pointer text-white text-left hover:no-underline [&>svg]:transition-all [&>svg]:duration-200 hover:text-(--gold) hover:[&>svg]:text-(--gold)">
-                      {faq.question}
+                    <AccordionTrigger className="group cursor-pointer text-white text-left hover:no-underline [&>svg]:hidden">
+                      <div className="flex w-full items-center justify-between gap-6">
+                        <span className="pr-2 text-base text-white hover:text-(--gold)">
+                          {faq.question}
+                        </span>
+
+                        <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/15 hover:bg-white/25">
+                          <span className="absolute h-0.5 w-4 rounded-full bg-white transition-all duration-300" />
+                          <span className="absolute h-4 w-0.5 rounded-full bg-white transition-all duration-300 group-data-[state=open]:rotate-45 group-data-[state=open]:scale-y-0" />
+                        </span>
+                      </div>
                     </AccordionTrigger>
 
-                    <AccordionContent className="text-(--muted-foreground)">
+                    <AccordionContent className="text-(--muted-foreground) leading-6">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
