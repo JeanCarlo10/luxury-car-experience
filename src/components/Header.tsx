@@ -58,15 +58,17 @@ const Header = () => {
           className="flex items-center justify-between h-20"
         >
           {/* Logo */}
-          <img
-            src={logoImage}
-            alt="Logo - Luxury Car Experience"
-            width={110}
-            height={70}
-            loading="eager"
-            decoding="async"
-            className="w-[130px] sm:w-[45px] h-auto"
-          />
+          <a href="#home" className="cursor-pointer">
+            <img
+              src={logoImage}
+              alt="Logo - Luxury Car Experience"
+              width={110}
+              height={70}
+              loading="eager"
+              decoding="async"
+              className="w-[130px] sm:w-[45px] h-auto"
+            />
+          </a>
 
           {/* Desktop Navigation */}
           {!isMobile && (

@@ -6,7 +6,7 @@ import { SlideUp } from "@/animations";
 const Footer = () => {
   return (
     <footer className="bg-(--background) py-12">
-      <div className="container mx-auto px-6 md:px-8" >
+      <div className="container mx-auto px-6 md:px-8">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <motion.div
             variants={SlideUp(0.2)}
@@ -15,14 +15,16 @@ const Footer = () => {
             className="space-y-6"
           >
             <div className="mb-4">
-              <img
-                src={logoImage}
-                alt="Logo - Luxury Car Experience"
-                width="150"
-                height="85"
-                className="w-[110px] h-auto"
-                fetchPriority="high"
-              />
+              <a href="#home" className="cursor-pointer">
+                <img
+                  src={logoImage}
+                  alt="Logo - Luxury Car Experience"
+                  width="150"
+                  height="85"
+                  className="w-[110px] h-auto"
+                  fetchPriority="high"
+                />
+              </a>
             </div>
 
             <p className="text-(--foreground)">

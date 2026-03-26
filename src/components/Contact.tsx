@@ -132,7 +132,13 @@ const Contact = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Form */}
-          <div className="rounded-2xl p-6 bg-(--card)">
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            // className="w-full lg:w-1/2"
+            className="rounded-2xl p-6 bg-(--card) border border-white/10"
+          >
             <div className="flex flex-col gap-2">
               <h1 className="text-(--foreground) text-3xl font-semibold">
                 Solicitar Orçamento
@@ -306,81 +312,87 @@ const Contact = () => {
                 </Button>
               </form>
             </Form>
-          </div>
+          </motion.div>
 
           {/* Contact Info Cards */}
-          <div className="flex flex-col gap-8">
-            <div className="rounded-2xl p-6 bg-(--card) flex flex-col gap-8">
-              <div className="flex flex-col md:flex-row">
-                <div className="min-w-12 min-h-12 w-12 h-12 bg-(--sub-card) rounded-full flex items-center justify-center mr-4 mb-1">
-                  <FaWhatsapp className="w-6 h-6 text-(--gold)" />
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex flex-col gap-8">
+              <div className="rounded-2xl p-6 bg-(--card) border border-white/10 flex flex-col gap-8">
+                <div className="flex flex-col md:flex-row">
+                  <div className="min-w-12 min-h-12 w-12 h-12 bg-(--sub-card) rounded-full flex items-center justify-center mr-4 mb-1">
+                    <FaWhatsapp className="w-6 h-6 text-(--gold)" />
+                  </div>
+
+                  <div className="flex flex-col">
+                    <span className="text-white text-lg font-semibold">
+                      WhatsApp
+                    </span>
+
+                    <a
+                      href={WHATSAPP_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/60 text-base font-medium hover:underline"
+                      aria-label="Abrir conversa no WhatsApp"
+                    >
+                      (45) 99916-8759
+                    </a>
+                  </div>
                 </div>
 
-                <div className="flex flex-col">
-                  <span className="text-white text-lg font-semibold">
-                    WhatsApp
-                  </span>
+                <div className="flex flex-col md:flex-row">
+                  <div className="min-w-12 min-h-12 w-12 h-12 bg-(--sub-card) rounded-full flex items-center justify-center mr-4 mb-1">
+                    <Mail className="w-6 h-6 text-(--gold)" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-white text-lg font-semibold">
+                      E-mail
+                    </span>
+                    <a
+                      className="text-white/70 sm:text-base md:text-sm lg:text-base"
+                      href="mailto:luxurycar@gmail.com"
+                    >
+                      luxurycar@gmail.com
+                    </a>
+                  </div>
+                </div>
 
-                  <a
-                    href={WHATSAPP_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/60 text-base font-medium hover:underline"
-                    aria-label="Abrir conversa no WhatsApp"
-                  >
-                    (45) 99916-8759
-                  </a>
+                <div className="flex flex-col md:flex-row">
+                  <div className="min-w-12 min-h-12 w-12 h-12 bg-(--sub-card) rounded-full flex items-center justify-center mr-4 mb-1">
+                    <MapPin className="w-6 h-6 text-(--gold)" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-white text-lg font-semibold">
+                      Endereço
+                    </span>
+                    <span className="text-white/70 text-base flex-wrap">
+                      Rua Marechal Floriano Peixoto, 2182 - Centro - Foz do
+                      Iguaçu - PR
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex flex-col md:flex-row">
-                <div className="min-w-12 min-h-12 w-12 h-12 bg-(--sub-card) rounded-full flex items-center justify-center mr-4 mb-1">
-                  <Mail className="w-6 h-6 text-(--gold)" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-white text-lg font-semibold">
-                    E-mail
-                  </span>
-                  <a
-                    className="text-white/70 sm:text-base md:text-sm lg:text-base"
-                    href="mailto:luxurycar@gmail.com"
-                  >
-                    luxurycar@gmail.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex flex-col md:flex-row">
-                <div className="min-w-12 min-h-12 w-12 h-12 bg-(--sub-card) rounded-full flex items-center justify-center mr-4 mb-1">
-                  <MapPin className="w-6 h-6 text-(--gold)" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-white text-lg font-semibold">
-                    Endereço
-                  </span>
-                  <span className="text-white/70 text-base flex-wrap">
-                    Rua Marechal Floriano Peixoto, 2182 - Centro - Foz do Iguaçu
-                    - PR
-                  </span>
-                </div>
+              {/* Map */}
+              <div className="rounded-2xl p-4 overflow-hidden bg-(--card) border border-white/10">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14400.403868883946!2d-54.60115781337539!3d-25.535013481787537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f6911fb77e4adf%3A0x20288ad48b18ce4f!2zQW5kcsOpIFBlbMOtY3VsYXM!5e0!3m2!1spt-BR!2sbr!4v1774284994748!5m2!1spt-BR!2sbr"
+                  width="100%"
+                  height="350"
+                  style={{ borderRadius: 4 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Mapa de localização da empresa"
+                  aria-label="Mapa mostrando a localização da empresa"
+                ></iframe>
               </div>
             </div>
-
-            {/* Map */}
-            <div className="rounded-2xl p-4 overflow-hidden bg-(--card)">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14400.403868883946!2d-54.60115781337539!3d-25.535013481787537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f6911fb77e4adf%3A0x20288ad48b18ce4f!2zQW5kcsOpIFBlbMOtY3VsYXM!5e0!3m2!1spt-BR!2sbr!4v1774284994748!5m2!1spt-BR!2sbr"
-                width="100%"
-                height="350"
-                style={{ borderRadius: 4 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Mapa de localização da empresa"
-                aria-label="Mapa mostrando a localização da empresa"
-              ></iframe>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
