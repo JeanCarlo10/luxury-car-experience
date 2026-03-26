@@ -11,7 +11,6 @@ type Slide = {
   type?: "image" | "video";
   positionMobile?: string;
   positionDesktop?: string;
-  buttonVariant?: "yellow" | "red";
   textVariant?: "light" | "dark";
 };
 
@@ -22,7 +21,6 @@ const slides: Slide[] = [
     type: "video",
     title: "",
     subtitle: "",
-    buttonVariant: undefined,
     textVariant: "light",
   },
   // {
