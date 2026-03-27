@@ -255,7 +255,6 @@ const ReviewsStaticPetshop = () => {
             src={Treinamento}
             alt="Banner Treinamento PPF"
             className="max-h-[350px] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-            // className="h-[220px] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02] md:h-[280px] lg:h-[300px]"
             loading="lazy"
           />
         </motion.a>
