@@ -92,35 +92,35 @@ const Services = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
-                <article className="group/card relative h-[400px] cursor-pointer overflow-hidden rounded-2xl">
+                <article className="group/card relative h-[460px] cursor-pointer overflow-hidden rounded-2xl md:h-[400px]">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover/card:scale-105"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out md:group-hover/card:scale-105"
                     style={{ objectPosition: service.imagePosition }}
                   />
 
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/45 transition-all duration-500 group-hover/card:bg-black/60" />
+                  <div className="absolute inset-0 bg-black/50 transition-all duration-500 md:group-hover/card:bg-black/60" />
 
-                  {/* Center content before hover */}
-                  <div className="absolute inset-0 z-10 flex items-center justify-center px-6 text-center transition-all duration-500 group-hover/card:scale-95 group-hover/card:opacity-0">
+                  {/* Content before hover - desktop only */}
+                  <div className="absolute inset-0 z-10 hidden items-center justify-center px-6 text-center transition-all duration-500 md:flex md:group-hover/card:scale-95 md:group-hover/card:opacity-0">
                     <div className="flex items-center gap-3 text-white">
                       <Icon className="h-12 w-12" />
                       <h3 className="text-3xl font-bold">{service.title}</h3>
                     </div>
                   </div>
 
-                  {/* Bottom content after hover */}
+                  {/* Bottom content */}
                   <div className="absolute inset-x-0 bottom-0 z-20 p-6 md:p-7">
-                    <div className="translate-y-6 opacity-0 transition-all duration-500 group-hover/card:translate-y-0 group-hover/card:opacity-100">
+                    <div className="translate-y-0 opacity-100 transition-all duration-500 md:translate-y-6 md:opacity-0 md:group-hover/card:translate-y-0 md:group-hover/card:opacity-100">
                       <h3 className="text-3xl font-bold text-white">
                         {service.title}
                       </h3>
 
-                      <div className="mt-5 h-0.5 w-full origin-left rounded-4xl scale-x-0 bg-gradient-to-r from-[var(--gold)] via-[var(--gold)]/60 to-transparent transition-transform duration-700 group-hover/card:scale-x-100" />
-                      
-                      <p className="mt-4 max-w-[95%] text-base leading-relaxed text-white/80 opacity-0 transition-all duration-500 delay-100 group-hover/card:opacity-100">
+                      <div className="mt-5 h-0.5 w-full origin-left rounded-4xl bg-gradient-to-r from-(--gold) via-(--gold)/60 to-transparent transition-transform duration-700 md:w-full md:scale-x-0 md:group-hover/card:scale-x-100" />
+
+                      <p className="mt-4 max-w-[95%] text-base leading-relaxed text-white/80 md:opacity-0 md:transition-all md:duration-500 md:delay-100 md:group-hover/card:opacity-100">
                         {service.description}
                       </p>
 
