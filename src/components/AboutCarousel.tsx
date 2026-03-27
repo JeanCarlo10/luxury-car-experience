@@ -40,7 +40,7 @@ const AboutCarousel = () => {
         {images.map((item, index) => (
           <SwiperSlide
             key={index}
-            className="!w-[280px] md:!w-[340px] lg:!w-[420px]"
+            className="!w-[200px] md:!w-[340px] lg:!w-[420px]"
           >
             <img
               src={item.backgroundImage}

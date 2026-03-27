@@ -193,7 +193,7 @@ const ReviewsStaticPetshop = () => {
 
         {/* Slider */}
         <Swiper
-          className="pagination-bullet-review"
+          className="pagination-bullet-review bullet-review"
           modules={[Pagination, Autoplay]}
           grabCursor={true}
           pagination={{ clickable: true }}
