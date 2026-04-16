@@ -78,59 +78,19 @@ const HeroCarousel = () => {
 
             return (
               <SwiperSlide key={i} className="w-full h-full">
-                <div className="relative w-full h-full">
-                  {/* <img
-                    src={item.src}
-                    alt={item.alt}
-                    className="
-                      w-full h-full object-cover
-                      object-(--position-mobile)
-                      sm:object-(--position-desktop)
-                    "
-                    style={
-                      {
-                        ["--position-mobile" as any]:
-                          item.positionMobile ?? "50% 50%",
-                        ["--position-desktop" as any]:
-                          item.positionDesktop ?? "50% 50%",
-                      } as React.CSSProperties
-                    }
-                    loading={i === 0 ? "eager" : "lazy"}
-                    decoding="async"
-                    fetchPriority="high"
-                  /> */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <video
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    // preload={i === 0 ? "auto" : "metadata"}
+                  >
+                    <source src={item.src} type="video/mp4" />
+                  </video>
 
-                  {item.type === "video" ? (
-                    <video
-                      className="w-full h-full object-cover"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload={i === 0 ? "auto" : "metadata"}
-                    >
-                      <source src={item.src} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <img
-                      src={item.src}
-                      alt={item.alt}
-                      className="w-full h-full object-cover object-[var(--position-mobile)] sm:object-[var(--position-desktop)]"
-                      style={
-                        {
-                          ["--position-mobile" as any]:
-                            item.positionMobile ?? "50% 50%",
-                          ["--position-desktop" as any]:
-                            item.positionDesktop ?? "50% 50%",
-                        } as React.CSSProperties
-                      }
-                      loading={i === 0 ? "eager" : "lazy"}
-                      decoding="async"
-                      fetchPriority="high"
-                    />
-                  )}
-
-                  <div className="absolute inset-0 bg-black/50" />
+                  <div className="absolute inset-0 bg-black/45" />
 
                   <div className="absolute inset-0 flex items-center">
                     <div className="container mx-auto px-8">
