@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
-
+import { motion } from "framer-motion";
 import HeroVideo from "@/assets/Video01.mp4";
 
 type Slide = {
@@ -23,36 +23,23 @@ const slides: Slide[] = [
     subtitle: "",
     textVariant: "light",
   },
-  // {
-  //   src: Hero02,
-  //   alt: "Hero 02",
-  //   type: "image",
-  //   title: "AQUI VOCÊ PODE\nCONFIAR",
-  //   subtitle:
-  //     "Experiência, confiança e tecnologia para cuidar do seu veículo com a qualidade que você merece.",
-  //   positionMobile: "25% 35%",
-  //   positionDesktop: "50% 50%",
-  //   buttonVariant: "red",
-  //   textVariant: "light",
-  // },
-  // {
-  //   src: Hero03,
-  //   alt: "Hero 03",
-  //   type: "image",
-  //   title: "MÊCANICA\nEM GERAL",
-  //   subtitle:
-  //     "Diagnóstico preciso e atendimento de confiança. Cuidamos do seu veículo com tecnologia, experiência e atenção a cada detalhe.",
-  //   positionMobile: "50% 35%",
-  //   positionDesktop: "50% 50%",
-  //   buttonVariant: "red",
-  //   textVariant: "light",
-  // },
 ];
+
+const handleScroll = () => {
+  const nextSection = document.getElementById("service");
+
+  if (nextSection) {
+    nextSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+};
 
 const HeroCarousel = () => {
   return (
-    <section className="w-full">
-      <div className="relative w-full h-screen">
+    <section className="relative  w-full">
+      <div className="relative w-full h-screen overflow-hidden">
         <Swiper
           modules={[Autoplay, Pagination, EffectFade, Navigation]}
           slidesPerView={1}
@@ -70,11 +57,6 @@ const HeroCarousel = () => {
           {slides.map((item, i) => {
             const textClass =
               item.textVariant === "dark" ? "text-black" : "text-white";
-
-            // const buttonClass =
-            //   item.buttonVariant === "yellow"
-            //     ? "bg-(--yellow) text-black hover:bg-yellow-400"
-            //     : "bg-(--button-primary-medium) text-white hover:bg-red-800";
 
             return (
               <SwiperSlide key={i} className="w-full h-full">
@@ -108,17 +90,6 @@ const HeroCarousel = () => {
                         >
                           {item.subtitle}
                         </p>
-
-                        {/* <button
-                          onClick={() => {
-                            document
-                              .getElementById("contact")
-                              ?.scrollIntoView({ behavior: "smooth" });
-                          }}
-                          className={`mt-8 inline-flex items-center cursor-pointer rounded-lg transition px-6 py-3 font-semibold hover:scale-105 ${buttonClass}`}
-                        >
-                          Agendar Atendimento
-                        </button> */}
                       </div>
                     </div>
                   </div>
@@ -127,6 +98,34 @@ const HeroCarousel = () => {
             );
           })}
         </Swiper>
+
+        {/* Ícone animado de scroll */}
+        <motion.button
+          type="button"
+          onClick={handleScroll}
+          aria-label="Rolar para a próxima seção"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
+          className="group absolute bottom-8 left-1/2 z-30 flex -translate-x-1/2 flex-col cursor-pointer items-center gap-3 text-white/70 transition hover:text-(--gold)"
+        >
+          
+
+          <span className="relative flex h-14 w-8 justify-center rounded-full border border-white/30 bg-black/20 backdrop-blur-md transition group-hover:border-(--gold)/80">
+            <motion.span
+              animate={{
+                y: [8, 22, 8],
+                opacity: [1, 0.35, 1],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute top-0 h-2 w-1 rounded-full bg-white/80 transition group-hover:bg-(--gold)"
+            />
+          </span>
+        </motion.button>
       </div>
     </section>
   );
